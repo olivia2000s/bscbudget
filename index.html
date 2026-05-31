@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>BSC Budget Guide 2007–2027 | Berkeley Student Cooperative</title>
+  <meta name="description" content="Interactive budget guide for the Berkeley Student Cooperative, FY 2007–2027. For board directors."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" defer></script>
+  <style>
+    /* ── BSC AUTHENTIC AESTHETIC ── */
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@400;600;700&display=swap');
+
+    :root {
+      --tan: #c8b882;
+      --tan-light: #d4c99a;
+      --tan-dark: #b5a46c;
+      --bg: #f2e8d0;
+      --bg-light: #f8f2e0;
+      --bg-dark: #e8dab8;
+      --forest: #3a5a1c;
+      --forest-dark: #2d4616;
+      --forest-light: #4a7228;
+      --red: #8b1a1a;
+      --red-mid: #a02020;
+      --red-light: #c0392b;
+      --text: #1a1a0e;
+      --text-body: #2c2c1a;
+      --text-muted: #5a5040;
+      --text-subtle: #8a7860;
+      --white: #fffef8;
+      --border: #c8b882;
+      --border-light: #ddd0a8;
+      --shadow: 0 1px 4px rgba(60,40,0,0.12);
+      --radius: 0px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', Arial, sans-serif;
+      background: var(--bg);
+      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4t5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dvezeWfVxSGv8+can Fo0t/amZlkljgymdT/yRaen/K9PmYDs9Wh6L7ipoX9/y2ieCtfOFfPKszQTh6rvG4At2RYdsg4M "); 
+      color: var(--text-body);
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    /* ── TOP GREEN ANNOUNCEMENT BAR ── */
+    .announce-bar {
+      background: var(--forest);
+      color: #fff;
+      text-align: center;
+      padding: 7px 1rem;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border-bottom: 2px solid var(--tan-dark);
+    }
+    .announce-bar a { color: #fff; text-decoration: underline; }
+
+    /* ── UTILITY LINK BAR ── */
+    .util-bar {
+      background: var(--bg-dark);
+      border-bottom: 1px solid var(--border);
+      padding: 4px 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      font-size: 12px;
+    }
+    .util-bar a {
+      color: var(--red);
+      text-decoration: none;
+      padding: 0 10px;
+      border-right: 1px solid var(--border);
+      line-height: 1;
+    }
+    .util-bar a:first-child { border-left: 1px solid var(--border); }
+    .util-bar a:hover { text-decoration: underline; }
+
+    /* ── HEADER / LOGO AREA ── */
+    .site-header {
+      background: var(--bg-light);
+      border-bottom: 3px solid var(--tan);
+      padding: 10px 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .site-logo {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .logo-circle {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--forest); border: 3px solid var(--tan-dark);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      color: #fff; font-family: 'Merriweather', serif;
+    }
+    .logo-circle .logo-top { font-size: 8px; font-weight: 700; letter-spacing: 0.08em; }
+    .logo-circle .logo-bsc { font-size: 16px; font-weight: 700; line-height: 1; }
+    .logo-circle .logo-bot { font-size: 7px; letter-spacing: 0.04em; }
+    .logo-text h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--forest-dark); line-height: 1.1;
+    }
+    .logo-text p { font-size: 11px; color: var(--text-muted); font-style: italic; }
+    .header-right {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .btn-join {
+      padding: 6px 18px; font-size: 13px; font-weight: 700;
+      background: none; border: 2px solid var(--forest);
+      color: var(--forest); cursor: pointer; font-family: 'Open Sans', sans-serif;
+      text-decoration: none; transition: all 0.15s;
+    }
+    .btn-join:hover { background: var(--forest); color: #fff; }
+    .btn-donate {
+      padding: 6px 18px; font-size: 13px; font-weight: 700;
+      background: var(--red); border: 2px solid var(--red);
+      color: #fff; cursor: pointer; font-family: 'Open Sans', sans-serif;
+      text-decoration: none; transition: all 0.15s;
+    }
+    .btn-donate:hover { background: var(--red-mid); border-color: var(--red-mid); }
+
+    /* ── MAIN NAV ── */
+    nav.main-nav {
+      background: var(--forest-dark);
+      position: sticky; top: 0; z-index: 200;
+      border-bottom: 3px solid var(--tan-dark);
+    }
+    .main-nav-inner {
+      display: flex; align-items: stretch;
+      max-width: 100%; overflow-x: auto;
+    }
+    .main-nav-inner a {
+      font-size: 13px; font-weight: 700;
+      color: #fff; text-decoration: none;
+      padding: 10px 16px; display: block;
+      white-space: nowrap; letter-spacing: 0.03em;
+      border-right: 1px solid rgba(255,255,255,0.1);
+      transition: background 0.15s;
+      text-transform: uppercase;
+    }
+    .main-nav-inner a:hover,
+    .main-nav-inner a.active { background: var(--red); color: #fff; }
+    .main-nav-inner a.data-link { color: var(--tan-light); }
+    .main-nav-inner a.data-link:hover { background: var(--red); color: #fff; }
+
+    /* ── PROGRESS BAR ── */
+    #progress-bar { position: fixed; top: 0; left: 0; height: 3px; width: 0%; background: var(--red); z-index: 999; transition: width 0.1s linear; }
+
+    /* ── PAGE LAYOUT: sidebar + content ── */
+    .page-wrap {
+      max-width: 1060px; margin: 0 auto;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .main-content {
+      padding: 24px 32px;
+      background: var(--bg-light);
+      min-height: calc(100vh - 43px);
+    }
+
+    /* ── PAGE SECTION HEADERS ── */
+    .page-title {
+      font-family: 'Merriweather', serif;
+      font-size: 22px; font-weight: 700;
+      color: var(--text);
+      border-bottom: 2px solid var(--tan);
+      padding-bottom: 8px; margin-bottom: 16px;
+    }
+    .section-heading {
+      font-family: 'Merriweather', serif;
+      font-size: 17px; font-weight: 700;
+      color: var(--red);
+      margin: 24px 0 10px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .subsection-heading {
+      font-family: 'Merriweather', serif;
+      font-size: 14px; font-weight: 700;
+      color: var(--forest); margin: 16px 0 8px;
+    }
+    p { margin-bottom: 10px; font-size: 14px; line-height: 1.7; }
+    strong { font-weight: 700; }
+    em { font-style: italic; }
+    a { color: var(--red); }
+    a:hover { text-decoration: underline; }
+
+    /* ── INFO BOXES ── */
+    .info-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--forest);
+      padding: 12px 16px;
+      margin-bottom: 14px;
+      font-size: 13px; line-height: 1.7;
+    }
+    .info-box.red { border-left-color: var(--red); }
+    .info-box.gold { border-left-color: var(--tan-dark); }
+    .info-box strong { color: var(--text); }
+
+    /* ── STAT BOXES ── */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px,1fr));
+      gap: 10px; margin-bottom: 18px;
+    }
+    .stat-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--forest);
+      padding: 10px 12px; text-align: center;
+    }
+    .stat-box.red-top { border-top-color: var(--red); }
+    .stat-box .sv {
+      font-family: 'Merriweather', serif;
+      font-size: 1.5rem; font-weight: 700;
+      color: var(--forest); line-height: 1.1;
+      display: block; margin-bottom: 3px;
+    }
+    .stat-box .sv.r { color: var(--red); }
+    .stat-box .sv.g { color: var(--tan-dark); }
+    .stat-box .sl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-subtle); display: block; }
+    .stat-box .ss { font-size: 11px; color: var(--text-subtle); font-style: italic; display: block; margin-top: 2px; }
+    .stat-box .sc { font-size: 11px; font-weight: 600; display: block; margin-top: 3px; }
+    .sc.up { color: var(--forest); } .sc.dn { color: var(--red); }
+
+    /* ── TABLES ── */
+    .data-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 18px; }
+    .data-table th {
+      background: var(--forest); color: #fff;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 7px 10px;
+      text-align: right; border: 1px solid var(--forest-dark);
+    }
+    .data-table th:first-child { text-align: left; }
+    .data-table td {
+      padding: 6px 10px; border: 1px solid var(--border-light);
+      text-align: right; background: var(--white);
+    }
+    .data-table td:first-child { text-align: left; background: var(--bg-light); color: var(--text-muted); }
+    .data-table tbody tr:nth-child(even) td { background: var(--bg); }
+    .data-table tbody tr:nth-child(even) td:first-child { background: var(--bg-dark); }
+    .data-table tbody tr:hover td { background: #e8f0d8; }
+    .data-table tbody tr:hover td:first-child { background: #d8e8c8; }
+    .data-table tr.tot td { font-weight: 700; background: var(--forest) !important; color: #fff !important; border-color: var(--forest-dark); }
+    .pos { color: var(--forest) !important; font-weight: 700; }
+    .neg { color: var(--red) !important; font-weight: 700; }
+    .est td { background: #fdf8e8 !important; }
+    .est td:first-child { background: #f5eec8 !important; }
+
+    /* ── TABS ── */
+    .tab-bar { display: flex; border-bottom: 2px solid var(--border); margin-bottom: 14px; gap: 0; }
+    .tb {
+      background: var(--bg-dark); border: 1px solid var(--border);
+      border-bottom: none; padding: 6px 14px; font-size: 12px;
+      font-weight: 700; font-family: 'Open Sans', sans-serif;
+      color: var(--text-muted); cursor: pointer;
+      text-transform: uppercase; letter-spacing: 0.05em;
+      transition: all 0.12s; margin-right: 2px;
+    }
+    .tb:hover { background: var(--bg); color: var(--forest); }
+    .tb.on { background: var(--white); color: var(--red); border-bottom: 2px solid var(--white); margin-bottom: -2px; }
+    .tp { display: none; } .tp.on { display: block; }
+
+    /* ── BAR CHART ROWS ── */
+    .bar-list { display: flex; flex-direction: column; gap: 8px; }
+    .br { display: flex; align-items: center; gap: 8px; }
+    .br .l { width: 160px; flex-shrink: 0; font-size: 12px; color: var(--text-muted); text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .br .t { flex: 1; height: 14px; background: var(--bg-dark); border: 1px solid var(--border-light); overflow: hidden; }
+    .br .f { height: 100%; }
+    .br .a { width: 66px; flex-shrink: 0; font-size: 12px; color: var(--text-muted); font-weight: 700; }
+
+    /* ── SEARCH ── */
+    #exp-search {
+      width: 100%; padding: 7px 10px; font-size: 13px;
+      font-family: 'Open Sans', sans-serif;
+      border: 1px solid var(--border); background: var(--white);
+      color: var(--text); margin-bottom: 10px; outline: none;
+    }
+    #exp-search:focus { border-color: var(--forest); box-shadow: 0 0 0 2px rgba(58,90,28,0.15); }
+
+    /* ── TOOLTIP ── */
+    .tip {
+      display: inline-block; width: 14px; height: 14px; border-radius: 50%;
+      background: var(--tan-dark); color: var(--white); font-size: 9px;
+      font-weight: 700; text-align: center; line-height: 14px;
+      cursor: help; vertical-align: middle; margin-left: 3px; position: relative;
+    }
+    .tip:hover::after {
+      content: attr(data-tip);
+      position: absolute; left: 50%; transform: translateX(-50%);
+      bottom: 120%; background: var(--forest-dark); color: #fff;
+      font-size: 11px; font-weight: 400; padding: 5px 8px;
+      width: 200px; white-space: normal; text-align: left;
+      z-index: 50; box-shadow: var(--shadow);
+    }
+
+    /* ── GLOSSARY ── */
+    .gloss-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 10px; }
+    .gloss-item { background: var(--white); border: 1px solid var(--border); padding: 10px 12px; }
+    .gloss-item h4 { font-size: 13px; font-weight: 700; color: var(--forest); margin-bottom: 4px; }
+    .gloss-item p { font-size: 12px; color: var(--text-muted); line-height: 1.55; margin: 0; }
+
+    /* ── SOURCE CARDS ── */
+    .source-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: 10px; margin-bottom: 16px; }
+    .source-card { background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--forest); padding: 12px; }
+    .source-card h4 { font-size: 13px; font-weight: 700; color: var(--forest); margin-bottom: 6px; }
+    .source-card .sc-meta { font-size: 11px; color: var(--text-subtle); margin-bottom: 3px; }
+    .source-card a.open-btn {
+      display: inline-block; font-size: 11px; font-weight: 700;
+      color: var(--white); background: var(--forest);
+      padding: 4px 12px; text-decoration: none; margin-top: 8px;
+      transition: background 0.12s; letter-spacing: 0.04em; text-transform: uppercase;
+    }
+    .source-card a.open-btn:hover { background: var(--red); }
+
+    /* ── NOTES ── */
+    .note-list { display: flex; flex-direction: column; gap: 8px; }
+    .note {
+      border-left: 4px solid var(--tan-dark);
+      padding: 8px 12px; background: var(--white);
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--tan-dark);
+      font-size: 13px; color: var(--text-muted);
+    }
+    .note strong { color: var(--text); }
+
+    /* ── CHART WRAP ── */
+    .cw { position: relative; width: 100%; }
+
+    /* ── RATE GRID ── */
+    .rate-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    @media (max-width: 600px) { .rate-grid { grid-template-columns: 1fr; } }
+
+    /* ── DONUTS / PIE LEGEND ── */
+    .pie-legend { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; font-size: 11px; color: var(--text-muted); }
+    .pie-legend span { display: flex; align-items: center; gap: 4px; }
+    .pie-legend i { display: inline-block; width: 10px; height: 10px; border: 1px solid rgba(0,0,0,0.1); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--forest-dark); color: rgba(255,255,255,0.6);
+      text-align: center; padding: 20px 1.5rem; font-size: 12px; line-height: 1.8;
+      border-top: 3px solid var(--tan-dark); margin-top: 0;
+    }
+    footer strong { color: rgba(255,255,255,0.85); }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: var(--tan-light); text-decoration: underline; }
+    .footer-links { display: flex; justify-content: center; gap: 0; margin: 6px 0; flex-wrap: wrap; }
+    .footer-links a { padding: 0 10px; border-right: 1px solid rgba(255,255,255,0.2); font-size: 12px; }
+    .footer-links a:last-child { border-right: none; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 720px) {
+      .page-wrap { grid-template-columns: 1fr; }
+        .main-nav-inner a { font-size: 11px; padding: 8px 10px; }
+    }
+
+    /* ── CHATBOT ── */
+    #chat-btn {
+      position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+      width: 52px; height: 52px;
+      background: var(--forest-dark); border: 3px solid var(--tan-dark);
+      color: #fff; font-size: 20px; cursor: pointer;
+      box-shadow: 0 3px 12px rgba(42,31,14,0.4);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform 0.2s; border-radius: 0;
+    }
+    #chat-btn:hover { transform: scale(1.06); background: var(--red); }
+    #chat-panel {
+      position: fixed; bottom: 82px; right: 20px; z-index: 999;
+      width: 360px; max-width: calc(100vw - 40px);
+      background: var(--bg-light);
+      border: 2px solid var(--border);
+      box-shadow: 0 6px 28px rgba(42,31,14,0.3);
+      display: none; flex-direction: column; overflow: hidden;
+      font-family: 'Open Sans', sans-serif;
+    }
+    #chat-panel.open { display: flex; }
+    .chat-header {
+      background: var(--forest-dark); color: #fff;
+      padding: 10px 14px; display: flex; align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px solid var(--tan-dark);
+    }
+    .chat-header-left { display: flex; align-items: center; gap: 8px; }
+    .chat-header-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--bg); display: flex; align-items: center;
+      justify-content: center; font-size: 11px; color: var(--forest-dark);
+      font-weight: 700; border: 1px solid var(--tan-dark);
+    }
+    .chat-header h3 { font-size: 13px; font-weight: 700; margin: 0; }
+    .chat-header p { font-size: 10px; color: rgba(255,255,255,0.55); margin: 0; }
+    .chat-close { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 16px; cursor: pointer; padding: 2px 5px; }
+    .chat-close:hover { color: #fff; }
+    .chat-messages {
+      flex: 1; overflow-y: auto; padding: 12px;
+      display: flex; flex-direction: column; gap: 8px;
+      min-height: 240px; max-height: 340px;
+      background: var(--bg);
+    }
+    .chat-msg { max-width: 90%; padding: 7px 10px; font-size: 12px; line-height: 1.6; }
+    .chat-msg.bot {
+      background: var(--white); border: 1px solid var(--border);
+      color: var(--text-body); align-self: flex-start;
+    }
+    .chat-msg.bot a { color: var(--red); font-size: 11px; }
+    .chat-msg.user {
+      background: var(--forest-dark); color: #fff; align-self: flex-end;
+    }
+    .chat-msg.bot.loading { color: var(--text-subtle); font-style: italic; }
+    .chat-chips { padding: 6px 10px 2px; display: flex; flex-wrap: wrap; gap: 5px; background: var(--bg-dark); border-bottom: 1px solid var(--border); }
+    .chat-chip {
+      font-size: 11px; font-weight: 700; color: var(--forest);
+      border: 1px solid var(--border); background: var(--white);
+      padding: 3px 8px; cursor: pointer; letter-spacing: 0.02em;
+      transition: all 0.12s;
+    }
+    .chat-chip:hover { background: var(--forest); color: #fff; border-color: var(--forest); }
+    .chat-api-setup { padding: 8px 12px; background: var(--bg-dark); border-bottom: 1px solid var(--border); }
+    .chat-api-setup label { font-size: 10px; font-weight: 700; color: var(--text-subtle); text-transform: uppercase; letter-spacing: 0.07em; display: block; margin-bottom: 4px; }
+    .chat-api-setup .api-row { display: flex; gap: 5px; }
+    #api-key-input {
+      flex: 1; padding: 5px 7px; font-size: 11px; font-family: monospace;
+      border: 1px solid var(--border); background: var(--white); color: var(--text); outline: none;
+    }
+    #api-key-input:focus { border-color: var(--forest); }
+    .chat-api-setup .save-key-btn {
+      background: var(--forest); color: #fff; border: none;
+      padding: 5px 10px; font-size: 11px; font-weight: 700; cursor: pointer;
+      font-family: 'Open Sans', sans-serif; letter-spacing: 0.04em;
+    }
+    .chat-api-setup .save-key-btn:hover { background: var(--red); }
+    .chat-api-setup p { font-size: 10px; color: var(--text-subtle); margin: 3px 0 0; }
+    .chat-status-bar { padding: 3px 10px; font-size: 10px; color: var(--text-subtle); background: var(--bg-dark); border-top: 1px solid var(--border); text-align: center; }
+    .chat-input-row { display: flex; gap: 6px; padding: 8px 10px; border-top: 1px solid var(--border); background: var(--white); }
+    #chat-input {
+      flex: 1; padding: 6px 8px; font-size: 12px;
+      font-family: 'Open Sans', sans-serif;
+      border: 1px solid var(--border); background: var(--bg-light);
+      color: var(--text); outline: none;
+    }
+    #chat-input:focus { border-color: var(--forest); }
+    #chat-send {
+      background: var(--forest-dark); color: #fff; border: none;
+      padding: 6px 12px; font-size: 12px; font-weight: 700;
+      cursor: pointer; font-family: 'Open Sans', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    #chat-send:hover { background: var(--red); }
+    #chat-send:disabled { background: var(--text-subtle); cursor: not-allowed; }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announce-bar">
+  BSC Budget Guide 2007–2027 &nbsp;·&nbsp; For Board Directors &nbsp;·&nbsp;
+  <a href="#data">View all sources ↓</a>
+</div>
+
+<!-- UTILITY SOURCE BAR -->
+<div class="util-bar">
+  <a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank">FY 2016-17 Budget</a>
+  <a href="https://docs.google.com/spreadsheets/d/19zGbRsz1a4MdisebdASrAz1AZuhobiQuYcFEfp4HUVA/edit?usp=sharing" target="_blank">FY 2017-18 Budget</a>
+  <a href="https://docs.google.com/spreadsheets/d/1tl6chkmw0540bPo9wX8OW4D50onTlz8X0hAPIzj-y38/edit?usp=sharing" target="_blank">FY 2021-22 Budget</a>
+  <a href="https://docs.google.com/spreadsheets/d/1sScaf9fVTaHbb3FJuOPgySqyrPc6GK8PaHaXAZMHvUM/edit?usp=sharing" target="_blank">Previous Budgets</a>
+  <a href="https://docs.google.com/spreadsheets/d/18WLr4xbfanuUq_um3zeQA7aycQnRoseKjRR3dUbGpsk/edit?usp=sharing" target="_blank">FY 2022-23 Budget</a>
+  <a href="https://projects.propublica.org/nonprofits/organizations/940948140" target="_blank">IRS 990s ↗</a>
+  <a href="https://projects.propublica.org/nonprofits/organizations/940948140" target="_blank">IRS 990s (ProPublica)</a>
+  <a href="https://docs.google.com/spreadsheets/d/1-pJTry9HCjdPoyAU9dm5qAiDozEJ20fHpTYKh1xmyuo/edit?usp=sharing" target="_blank">FY 2023-24 Budget</a>
+  <a href="https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing" target="_blank">FY 2026-27 Budget</a>
+</div>
+
+<!-- SITE HEADER -->
+<div class="site-header">
+  <a class="site-logo" href="#top">
+    <div class="logo-circle">
+      <span class="logo-top">STUDENT</span>
+      <span class="logo-bsc">BSC</span>
+      <span class="logo-bot">BERKELEY</span>
+    </div>
+    <div class="logo-text">
+      <h1>Berkeley Student Cooperative</h1>
+      <p>Budget Guide for Board Directors · FY 2007–2027</p>
+    </div>
+  </a>
+  <div class="header-right">
+    <a href="https://www.bsc.coop" class="btn-join" target="_blank">bsc.coop</a>
+    <a href="#data" class="btn-donate">Data &amp; Sources</a>
+  </div>
+</div>
+
+<!-- MAIN NAV -->
+<nav class="main-nav" id="top">
+  <div class="main-nav-inner">
+    <a href="#start">Start Here</a>
+    <a href="#overview">Overview</a>
+    <a href="#revenue">Revenue</a>
+    <a href="#expenses">Expenses</a>
+    <a href="#history">History</a>
+    <a href="#rates">Rates</a>
+    <a href="#glossary">Glossary</a>
+    <a href="#data" class="data-link">Data &amp; Sources</a>
+  </div>
+</nav>
+
+<div class="page-wrap">
+  <div class="main-content">
+<!-- START HERE -->
+<section style="padding:24px 0;border-top:1px solid var(--border-light);" id="start">
+  <div class="container">
+    <div class="bsc-section">
+      <p style="font-size:11px;font-weight:700;color:var(--text-subtle);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Start here</p>
+      <h2 class="page-title">What is this, and how do I read it?</h2>
+      <p>If you're new to BSC finances, read this section first. It explains what the BSC is, what a budget is, and what the key terms mean.</p>
+
+    <div class="info-box" style="margin-bottom:1.5rem;">
+      <h3 class="subsection-heading" style="margin-top:8px;">What is the BSC?</h3>
+      The Berkeley Student Cooperative is a <strong>student-run nonprofit</strong> that provides affordable housing and meals to UC Berkeley students. It has been operating since 1933 and is the largest student housing cooperative in the United States.
+      <ul>
+        <li>Members govern the BSC directly — each house elects officers, and an elected Board of Directors oversees the whole organization.</li>
+        <li>Members contribute labor (<strong>workshifts</strong> — cooking, cleaning, maintenance) in exchange for below-market housing costs.</li>
+        <li>The BSC is financially self-sustaining. Revenue comes from member room charges, meal plans, and apartment rent. There is no university subsidy.</li>
+      </ul>
+    </div>
+
+    <div class="info-box" style="margin-bottom:1.5rem;">
+      <h3 class="subsection-heading" style="margin-top:8px;">What is a budget, and why does it matter to the Board?</h3>
+      A budget is a <strong>plan for money</strong>. It estimates how much the BSC expects to earn and spend over the fiscal year (Summer through Spring). It's approved before the year starts. <strong>This site shows actuals for all completed years</strong> (taken from the prior-year columns in each BSC budget file, which reflect real accounting data) and a projection for FY 2026-27 only.
+      <br><br>
+      The budget matters to the Board because it's the primary tool for <strong>financial oversight</strong>. When actual spending diverges from the budget, that's a signal to ask questions. The Board's job is to monitor the long-run trend and hold leadership accountable for closing the deficit over time.
+    </div>
+
+    <div class="info-box">
+      <h3 class="subsection-heading" style="margin-top:8px;">What's the 2026-27 bottom line — and what does the history show?</h3>
+      The FY 2026-27 budget <strong>projects</strong> spending $1.30M more than revenue. This is a forward-looking estimate — <strong>it has not happened yet</strong>. Historically, the BSC ran small surpluses through most of 2007–2017. Deficits began appearing around 2013-14 and grew sharply after 2022. The Board should monitor whether the projected improvement from −$1.72M to −$1.30M actually materializes.
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section style="padding:24px 0;border-top:1px solid var(--border-light);" id="overview">
+  <div class="container">
+    <div class="bsc-section">
+      <p style="font-size:11px;font-weight:700;color:var(--text-subtle);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">FY 2026-27 Overview · Projections only</p>
+      <h2 class="page-title">Budget at a glance</h2>
+      <p>All figures below are <strong>projections</strong> for FY 2026-27 — the fiscal year has not concluded. Historical comparisons use actual board-approved budgets from prior years.</p>
+
+    <div class="info-box red" style="margin-bottom:1rem;">
+      <span style="flex-shrink:0;font-size:14px;">📋</span>
+      <div><strong>Projection reminder.</strong> The $13.24M revenue and $14.54M expenses shown below are what the BSC <em>expects</em> for FY 2026-27. They are not confirmed results. Revenue and expense totals for all prior years (2007-08 through 2025-26) are actuals drawn from prior-year columns in BSC budget files.</div>
+    </div>
+    <div class="info-box gold" style="margin-bottom:2rem;">
+      <span style="flex-shrink:0;font-size:14px;">ℹ️</span>
+      <div><strong>Note on revenue comparisons:</strong> The prior year included $434K in Evans Manor / Barrington lease income. That lease ended. Direct revenue comparisons understate the real underlying growth.</div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="sl">Projected Revenue <span class="tip" data-tip="What the BSC expects to earn from member room charges, meal plans, apartment rent, and parking. FY 2026-27 projection only.">?</span></div>
+        <div class="sv">$13.24M</div>
+        <div class="sc dn">↑ +$531K vs. last year budget</div>
+        <div class="ss">projection, not confirmed</div>
+      </div>
+      <div class="stat-box">
+        <div class="sl">Projected Expenses <span class="tip" data-tip="What the BSC expects to spend on staff, food, utilities, maintenance, insurance, and debt service. FY 2026-27 projection only.">?</span></div>
+        <div class="sv">$14.54M</div>
+        <div class="sc dn">↑ +$165K vs. last year budget</div>
+        <div class="ss">projection, not confirmed</div>
+      </div>
+      <div class="stat-box red-top">
+        <div class="sl">Projected Gap <span class="tip" data-tip="Expenses minus revenue. Negative means a deficit — the BSC would need to draw from reserves. This is a projection for FY 2026-27 only.">?</span></div>
+        <div class="sv r">−$1.30M</div>
+        <div class="sc up">↑ $366K improvement projected</div>
+        <div class="ss">projection, not yet realized</div>
+      </div>
+      <div class="stat-box">
+        <div class="sl">Rate Increase <span class="tip" data-tip="Member room & board and rent rates increased 7.5% for FY 2026-27. Parking increased 10%.">?</span></div>
+        <div class="sv g">7.5%</div>
+        <div class="ss">room, board & rent</div>
+      </div>
+      <div class="stat-box red-top">
+        <div class="sl">Reserve Contributions <span class="tip" data-tip="The BSC funds Operating Reserve, Scholarship, Growth, and Contingency funds. All are $0 this year.">?</span></div>
+        <div class="sv">$0</div>
+        <div class="ss">no reserves funded this year</div>
+      </div>
+      <div class="stat-box">
+        <div class="sl">Payroll Cap <span class="tip" data-tip="The Board capped staff payroll at $4.15M, down from $4.35M last year. Includes 2% COLA.">?</span></div>
+        <div class="sv">$4.15M</div>
+        <div class="sc up">↓ Board-capped, −$198K</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Projected revenue sources (FY 2026-27)</p>
+        <div class="cw" style="height:220px;">
+          <canvas id="revPie" role="img" aria-label="Revenue donut: Room 44.6%, Rent 27%, Board 19.9%, Misc 6.6%, Parking 1.9%">Room $5.91M, Rent $3.58M, Board $2.63M, Misc $878K, Parking $246K.</canvas>
+        </div>
+        <div class="pie-legend">
+          <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#2d4a1e;margin-right:4px;vertical-align:middle;"></span>Room 44.6%</span>
+          <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#4e7a33;margin-right:4px;vertical-align:middle;"></span>Rent 27%</span>
+          <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#b8860b;margin-right:4px;vertical-align:middle;"></span>Board 19.9%</span>
+          <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#8b2615;margin-right:4px;vertical-align:middle;"></span>Misc 6.6%</span>
+          <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#aaa;margin-right:4px;vertical-align:middle;"></span>Parking 1.9%</span>
+        </div>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Top projected expenses (FY 2026-27)</p>
+        <div class="bar-list" id="top-bars"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVENUE -->
+<section style="padding:24px 0;border-top:1px solid var(--border-light);" id="revenue">
+  <div class="container">
+    <div class="bsc-section">
+      <p style="font-size:11px;font-weight:700;color:var(--text-subtle);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Revenue · FY 2026-27 Projections</p>
+      <h2 class="page-title">Projected revenue</h2>
+      <p>The BSC earns money from four main sources: room charges, meal plans, apartment rent, and parking. All figures below are FY 2026-27 projections.</p>
+    <div class="info-box" style="margin-bottom:2rem;">
+      <h3 class="subsection-heading" style="margin-top:8px;">How does BSC revenue work?</h3>
+      Members pay each semester for housing and meals. The BSC sets rates annually. This budget reflects a <strong>7.5% increase</strong> on room, board, and rent, and <strong>10%</strong> on parking. Revenue also depends on <strong>occupancy</strong> — how many beds are actually filled. This budget assumes: <strong>Summer 2026: 43%</strong> · <strong>Fall 2026: 90%</strong> · <strong>Spring 2027: 84.75%</strong>. If actual occupancy falls short, revenue will be lower than projected.
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+      <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Projected revenue vs. prior year budget</div>
+      <div class="cw" style="height:260px;">
+        <canvas id="revBar" role="img" aria-label="Grouped bar chart comparing 2025-26 and 2026-27 revenue by category"></canvas>
+      </div>
+      <div style="display:flex;gap:18px;margin-top:10px;font-size:12px;color:var(--text-muted);">
+        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#c8c0a0;margin-right:4px;vertical-align:middle;"></span>FY 2025-26 budget</span>
+        <span><span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#2d4a1e;margin-right:4px;vertical-align:middle;"></span>FY 2026-27 projected</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Projected revenue by category</div>
+        <table class="data-table">
+          <thead><tr><th>Category</th><th>FY 26-27 Proj.</th><th>FY 25-26 Budget</th><th>Change</th></tr></thead>
+          <tbody>
+            <tr><td>Room</td><td>$5,909,318</td><td>$5,541,768</td><td class="pos">+6.6%</td></tr>
+            <tr><td>Rent (apartments)</td><td>$3,578,057</td><td>$3,428,434</td><td class="pos">+4.4%</td></tr>
+            <tr><td>Board (meal plans)</td><td>$2,629,786</td><td>$2,337,195</td><td class="pos">+12.5%</td></tr>
+            <tr><td>Miscellaneous</td><td>$878,000</td><td>$751,700</td><td class="pos">+16.8%</td></tr>
+            <tr><td>Parking</td><td>$246,221</td><td>$216,545</td><td class="pos">+13.7%</td></tr>
+            <tr class="tot"><td>Total (projected)</td><td>$13,241,383</td><td>$12,710,046</td><td class="pos">+4.2%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Occupancy assumptions</div>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:1.2rem;">Occupancy drives room and board revenue. If fewer members show up, revenue drops below projection.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;"><span style="color:var(--text-muted);">Summer 2026</span><span style="font-weight:700;color:var(--gold);">43%</span></div>
+            <div style="height:8px;background:var(--parchment-dark);border-radius:2px;overflow:hidden;"><div style="height:100%;width:43%;background:var(--gold);border-radius:2px;"></div></div>
+            <p style="font-size:11px;color:var(--text-subtle);margin-top:2px;">Summer is always low — members leave for internships or home.</p>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;"><span style="color:var(--text-muted);">Fall 2026</span><span style="font-weight:700;color:var(--forest);">90%</span></div>
+            <div style="height:8px;background:var(--parchment-dark);border-radius:2px;overflow:hidden;"><div style="height:100%;width:90%;background:var(--forest);border-radius:2px;"></div></div>
+            <p style="font-size:11px;color:var(--text-subtle);margin-top:2px;">The highest-occupancy term — full houses drive most annual revenue.</p>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;font-size:13px;margin-bottom:4px;"><span style="color:var(--text-muted);">Spring 2027</span><span style="font-weight:700;color:var(--forest);">84.75%</span></div>
+            <div style="height:8px;background:var(--parchment-dark);border-radius:2px;overflow:hidden;"><div style="height:100%;width:84.75%;background:var(--forest);border-radius:2px;"></div></div>
+            <p style="font-size:11px;color:var(--text-subtle);margin-top:2px;">Slightly lower than fall — some attrition between semesters is normal.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPENSES -->
+<section style="padding:24px 0;border-top:1px solid var(--border-light);" id="expenses">
+  <div class="container">
+    <div class="bsc-section">
+      <p style="font-size:11px;font-weight:700;color:var(--text-subtle);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Expenses · FY 2026-27 Projections</p>
+      <h2 class="page-title">Projected expenses</h2>
+      <p>The BSC projects $14.54M in spending for FY 2026-27 — $1.30M more than projected revenue. All figures are projections.</p>
+    <div class="info-box red" style="margin-bottom:1rem;">
+      <span style="flex-shrink:0;font-size:14px;">📈</span>
+      <div><strong>Watch these lines:</strong> Garbage +63%, bad debts +121%, legal fees +37%, gas & electricity +22%. These are the biggest cost pressure points.</div>
+    </div>
+    <div class="info-box" style="margin-bottom:2rem;">
+      <span style="flex-shrink:0;font-size:14px;">✅</span>
+      <div><strong>Improving lines:</strong> Staff payroll is down $198K (Board-capped), financing is down $197K, IT maintenance is down $79K.</div>
+    </div>
+    <div class="tab-bar">
+      <button class="tb on" onclick="switchTab('exp','all',this)">All line items</button>
+      <button class="tb" onclick="switchTab('exp','risers',this)">Biggest increases</button>
+      <button class="tb" onclick="switchTab('exp','fallers',this)">Biggest decreases</button>
+    </div>
+    <div class="tp on" id="exp-tab-all">
+      <input type="text" id="exp-search" placeholder="Search expenses — try 'food', 'water', 'legal'…" oninput="filterExp()"/>
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;overflow-x:auto;">
+        <table class="data-table" id="exp-table">
+          <thead><tr><th>Line item</th><th>FY 26-27 Proj.</th><th>FY 25-26 Budget</th><th>$ Change</th><th>% Change</th><th>Context</th></tr></thead>
+          <tbody id="exp-tbody">
+            <tr data-search="staff payroll wages benefits"><td>Staff Payroll + Benefits <span class="tip" data-tip="Wages, payroll taxes, and benefits for all BSC staff. Board-capped at $4.15M. Includes 2% COLA.">?</span></td><td>$4,150,000</td><td>$4,347,769</td><td class="pos">−$197,769</td><td class="pos">−4.5%</td><td style="font-size:12px;color:var(--text-subtle);">Board-capped; 2% COLA included</td></tr>
+            <tr data-search="capital improvement hillegass parker hip rochdale roof"><td>Capital Improvement <span class="tip" data-tip="Major projects: Hillegass Parker House (HiP) & Rochdale roof repairs are the largest this year.">?</span></td><td>$1,281,000</td><td>$1,119,806</td><td class="neg">+$161,194</td><td class="neg">+14.4%</td><td style="font-size:12px;color:var(--text-subtle);">Hillegass Parker (HiP) & Rochdale roofs driving increase</td></tr>
+            <tr data-search="financing debt loans interest"><td>Financing <span class="tip" data-tip="Debt service — loan payments and interest. Declining as debts are paid down.">?</span></td><td>$1,187,701</td><td>$1,384,537</td><td class="pos">−$196,836</td><td class="pos">−14.2%</td><td style="font-size:12px;color:var(--text-subtle);">Covered by unrestricted reserves</td></tr>
+            <tr data-search="food meals dining board"><td>Food</td><td>$1,180,008</td><td>$1,162,049</td><td class="neg">+$17,959</td><td class="neg">+1.5%</td><td style="font-size:12px;color:var(--text-subtle);">Stable; modest inflation increase</td></tr>
+            <tr data-search="insurance property liability"><td>Insurance</td><td>$904,474</td><td>$907,544</td><td class="pos">−$3,070</td><td class="pos">−0.3%</td><td style="font-size:12px;color:var(--text-subtle);">Essentially flat</td></tr>
+            <tr data-search="water utilities sewer"><td>Water <span class="tip" data-tip="Includes Evans Manor (EVM) which uses ~$40K/year.">?</span></td><td>$675,568</td><td>$649,702</td><td class="neg">+$25,866</td><td class="neg">+4.0%</td><td style="font-size:12px;color:var(--text-subtle);">5% rate increase; includes EVM</td></tr>
+            <tr data-search="maintenance central regular preventive"><td>Reg & Prev Maint – Central</td><td>$734,280</td><td>$801,139</td><td class="pos">−$66,859</td><td class="pos">−8.3%</td><td style="font-size:12px;color:var(--text-subtle);">Reduction from prior year</td></tr>
+            <tr data-search="manager compensation training"><td>Mngr Comp + Training <span class="tip" data-tip="Manager pay is tied to occupancy — higher projected occupancy means higher compensation.">?</span></td><td>$682,588</td><td>$668,697</td><td class="neg">+$13,891</td><td class="neg">+2.1%</td><td style="font-size:12px;color:var(--text-subtle);">Pay linked to occupancy projection</td></tr>
+            <tr data-search="workshift co central operations pool"><td>C.O. Workshift Pool <span class="tip" data-tip="Labor pool for central operations. Decrease partly due to $17K reduction in Board Pay.">?</span></td><td>$657,453</td><td>$730,555</td><td class="pos">−$73,102</td><td class="pos">−10.0%</td><td style="font-size:12px;color:var(--text-subtle);">Board pay cut + formulaic correction</td></tr>
+            <tr data-search="gas electricity utilities energy"><td>Gas & Electricity <span class="tip" data-tip="PG&E and gas costs. Up 22% — a major cost pressure.">?</span></td><td>$636,035</td><td>$522,722</td><td class="neg">+$113,313</td><td class="neg">+21.7%</td><td style="font-size:12px;color:var(--text-subtle);">Significant utility cost increase</td></tr>
+            <tr data-search="garbage trash waste hauling"><td>Garbage <span class="tip" data-tip="Already over-budget in FY 2025-26 ($263K actual vs $217K budget). Budget now reflects reality.">?</span></td><td>$352,825</td><td>$216,582</td><td class="neg">+$136,243</td><td class="neg">+62.9%</td><td style="font-size:12px;color:var(--text-subtle);">Already over-budget in current year</td></tr>
+            <tr data-search="legal fees eviction attorney"><td>Legal Fees <span class="tip" data-tip="Covers evictions and enforcement of delinquent bills policy.">?</span></td><td>$250,000</td><td>$182,964</td><td class="neg">+$67,036</td><td class="neg">+36.6%</td><td style="font-size:12px;color:var(--text-subtle);">Evictions + delinquent enforcement</td></tr>
+            <tr data-search="bad debts non-payment members"><td>Bad Debts <span class="tip" data-tip="Reserve for members who don't pay. Paying members effectively cover non-payers.">?</span></td><td>$210,000</td><td>$95,000</td><td class="neg">+$115,000</td><td class="neg">+121.1%</td><td style="font-size:12px;color:var(--text-subtle);">Liquidity buffer for non-payers</td></tr>
+            <tr data-search="supplies materials house cleaning"><td>Supplies</td><td>$212,187</td><td>$258,748</td><td class="pos">−$46,561</td><td class="pos">−18.0%</td><td style="font-size:12px;color:var(--text-subtle);">Reduction from prior year</td></tr>
+            <tr data-search="consulting professional outside services"><td>Consulting <span class="tip" data-tip="Professional consulting, including support for the five required audits this year.">?</span></td><td>$200,000</td><td>$144,000</td><td class="neg">+$56,000</td><td class="neg">+38.9%</td><td style="font-size:12px;color:var(--text-subtle);">Includes audit consulting support</td></tr>
+            <tr data-search="IT information technology infrastructure"><td>Reg & Prev Maint – IT</td><td>$174,000</td><td>$252,912</td><td class="pos">−$78,912</td><td class="pos">−31.2%</td><td style="font-size:12px;color:var(--text-subtle);">Significant reduction</td></tr>
+            <tr data-search="auditing audit CPA accounting"><td>Auditing Fees <span class="tip" data-tip="Five audits required this year, quoted at ~$50K each.">?</span></td><td>$150,000</td><td>$108,000</td><td class="neg">+$42,000</td><td class="neg">+38.9%</td><td style="font-size:12px;color:var(--text-subtle);">5 audits @ ~$50K each</td></tr>
+            <tr data-search="telephone internet phone sonic"><td>Telephone & Internet <span class="tip" data-tip="Over-budget in current year due to one-time fees from switching to Sonic.">?</span></td><td>$145,260</td><td>$142,755</td><td class="neg">+$2,505</td><td class="neg">+1.8%</td><td style="font-size:12px;color:var(--text-subtle);">Sonic switchover fees</td></tr>
+            <tr data-search="cooperative experience member activities"><td>Cooperative Experience</td><td>$107,856</td><td>$107,356</td><td class="neg">+$500</td><td class="neg">+0.5%</td><td style="font-size:12px;color:var(--text-subtle);">Essentially flat</td></tr>
+            <tr data-search="rent lease convent property laundry hillegass parker"><td>Rent (leased property) <span class="tip" data-tip="BSC leases the Convent property. The Convent lease expired 12/31/2026; rate of $1.01/sqft used through then. Also includes a new $45K laundry contract, making laundry free to members.">?</span></td><td>$176,504</td><td>$123,944</td><td class="neg">+$52,560</td><td class="neg">+42.4%</td><td style="font-size:12px;color:var(--text-subtle);">Convent lease (exp. 12/31/2026) + laundry contract</td></tr>
+            <tr data-search="credit card echeck payment processing"><td>Credit Card & E-check Fees</td><td>$90,000</td><td>$90,500</td><td class="pos">−$500</td><td class="pos">−0.6%</td><td style="font-size:12px;color:var(--text-subtle);">Essentially flat</td></tr>
+            <tr data-search="miscellaneous other"><td>Miscellaneous</td><td>$89,612</td><td>$32,000</td><td class="neg">+$57,612</td><td class="neg">+180%</td><td style="font-size:12px;color:var(--text-subtle);">Significant increase — ask VPCF</td></tr>
+            <tr data-search="development organizational growth"><td>Development</td><td>$74,913</td><td>$76,913</td><td class="pos">−$2,000</td><td class="pos">−2.6%</td><td style="font-size:12px;color:var(--text-subtle);">Slight decrease</td></tr>
+            <tr data-search="taxes licenses property permits"><td>Taxes & Licenses</td><td>$60,000</td><td>$60,000</td><td>$0</td><td>0%</td><td style="font-size:12px;color:var(--text-subtle);">Unchanged</td></tr>
+            <tr data-search="external nasco contributions organizations"><td>External <span class="tip" data-tip="All non-NASCO contributions frozen this year.">?</span></td><td>$31,000</td><td>$48,274</td><td class="pos">−$17,274</td><td class="pos">−35.8%</td><td style="font-size:12px;color:var(--text-subtle);">Non-NASCO contributions frozen</td></tr>
+            <tr data-search="decentral maintenance houses individual"><td>Reg & Prev Maint – Decent.</td><td>$64,354</td><td>$60,250</td><td class="neg">+$4,104</td><td class="neg">+6.8%</td><td style="font-size:12px;color:var(--text-subtle);">Afro house + Hoyt capacity correction</td></tr>
+            <tr data-search="staff development training professional"><td>Staff Dev.</td><td>$24,208</td><td>$42,000</td><td class="pos">−$17,792</td><td class="pos">−42.4%</td><td style="font-size:12px;color:var(--text-subtle);">Significant reduction</td></tr>
+            <tr data-search="delivery shipping courier"><td>Delivery</td><td>$22,000</td><td>$20,000</td><td class="neg">+$2,000</td><td class="neg">+10%</td><td style="font-size:12px;color:var(--text-subtle);">Slight increase</td></tr>
+            <tr data-search="marketing recruitment outreach"><td>Marketing & Recruitment</td><td>$9,700</td><td>$9,700</td><td>$0</td><td>0%</td><td style="font-size:12px;color:var(--text-subtle);">Unchanged</td></tr>
+            <tr data-search="board committee development governance"><td>Board & Committee Dev.</td><td>$9,050</td><td>$11,500</td><td class="pos">−$2,450</td><td class="pos">−21.3%</td><td style="font-size:12px;color:var(--text-subtle);">Reduced</td></tr>
+            <tr data-search="reserve scholarship growth contingency"><td>Reserve Contributions <span class="tip" data-tip="Operating Reserve, Scholarship Fund, Growth Fund, and Contingency Fund all receive $0 this year.">?</span></td><td>$0</td><td>$4</td><td>—</td><td>—</td><td style="font-size:12px;color:var(--text-subtle);">No reserves funded this year</td></tr>
+            <tr class="tot"><td>Total Projected Expenses</td><td>$14,542,576</td><td>$14,377,919</td><td class="neg">+$164,657</td><td class="neg">+1.1%</td><td></td></tr>
+          </tbody>
+        </table>
+        <p id="no-results" style="display:none;text-align:center;padding:1.5rem;color:var(--text-subtle);font-size:14px;">No matching line items found.</p>
+      </div>
+    </div>
+    <div class="tp" id="exp-tab-risers">
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Largest projected increases vs. prior year budget</p>
+        <div class="bar-list" id="riser-bars"></div>
+      </div>
+    </div>
+    <div class="tp" id="exp-tab-fallers">
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Largest projected decreases vs. prior year budget</p>
+        <div class="bar-list" id="faller-bars"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HISTORY -->
+<section style="padding:24px 0;border-top:1px solid var(--border-light);" id="history">
+  <div class="container">
+    <div class="bsc-section">
+      <p style="font-size:11px;font-weight:700;color:var(--text-subtle);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Historical context · FY 2007-08 through FY 2026-27</p>
+      <h2 class="page-title">Two decades of budget history</h2>
+      <p>Revenue and expenses shown are <strong>actuals</strong> for 2007-08 through 2025-26, taken from the prior-year columns in each year's BSC budget file (which reflect real Accufund accounting data). FY 2026-27 is a projection only.</p>
+
+    <div class="info-box gold" style="margin-bottom:2rem;">
+      <span style="flex-shrink:0;font-size:14px;">⚠️</span>
+      <div><strong>All 20 years now confirmed.</strong> Every year from FY 2007-08 through FY 2025-26 has a board-approved budget source file. FY 2026-27 is a projection (year not yet concluded). Note: these are <strong>budgeted figures</strong>, not actuals — what was planned vs. what actually happened may differ.</div>
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+      <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Revenue vs. expenses — actual board-approved budgets 2007-08 through 2025-26 · FY 2026-27 projected *</div>
+      <div class="cw" style="height:320px;">
+        <canvas id="trendChart" role="img" aria-label="Line chart showing BSC actual board-approved revenue and expenses from 2007-08 through 2025-26, plus FY 2026-27 projection. BSC ran surpluses 2007-2013, then deficits that grew sharply after 2022."></canvas>
+      </div>
+      <div style="display:flex;gap:20px;margin-top:10px;font-size:12px;color:var(--text-muted);flex-wrap:wrap;">
+        <span><span style="display:inline-block;width:24px;height:2px;background:#2d4a1e;vertical-align:middle;margin-right:6px;border-radius:2px;"></span>Revenue (budget)</span>
+        <span><span style="display:inline-block;width:24px;height:0;vertical-align:middle;margin-right:6px;border-top:2px dashed #8b2615;"></span>Expenses (budget)</span>
+        <span style="color:var(--text-subtle);font-style:italic;">2007-08 through 2025-26 = actuals (from prior-year columns in BSC budget files) &nbsp;·&nbsp; * FY 2026-27 projected</span>
+      </div>
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;overflow-x:auto;">
+      <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Full budget history table — all available years</p>
+      <table class="data-table" style="min-width:800px;">
+        <thead>
+          <tr>
+            <th style="text-align:left;">Fiscal Year</th>
+            <th>Actual Revenue</th>
+            <th>Actual Expenses</th>
+            <th>Net Surplus / (Deficit)</th>
+            <th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2007–08</td><td>$8,668,450</td><td>$8,451,618</td><td class="pos">+$216,832</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank" style="color:var(--forest);">2016-17 YoY tab ↗</a></td></tr>
+          <tr><td>2008–09</td><td>$8,289,623</td><td>$8,288,973</td><td class="pos">+$650</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank" style="color:var(--forest);">2016-17 YoY tab ↗</a></td></tr>
+          <tr><td>2009–10</td><td>$9,176,630</td><td>$9,142,080</td><td class="pos">+$34,550</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank" style="color:var(--forest);">2016-17 YoY tab ↗</a></td></tr>
+          <tr><td>2010–11</td><td>$9,591,304</td><td>$9,557,447</td><td class="pos">+$33,857</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank" style="color:var(--forest);">2016-17 YoY tab ↗</a></td></tr>
+          <tr><td>2011–12</td><td>$9,793,719</td><td>$9,744,988</td><td class="pos">+$48,731</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank" style="color:var(--forest);">2016-17 YoY tab ↗</a></td></tr>
+          <tr><td>2012–13</td><td>$10,023,602</td><td>$9,942,710</td><td class="pos">+$80,892</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank" style="color:var(--forest);">2016-17 YoY tab ↗</a></td></tr>
+          <tr><td>2013–14</td><td>$10,334,439</td><td>$10,338,746</td><td class="neg">−$4,307</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank" style="color:var(--forest);">2016-17 YoY tab ↗</a></td></tr>
+          <tr><td>2014–15</td><td>$10,206,060</td><td>$10,201,648</td><td class="pos">+$4,412</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank" style="color:var(--forest);">2016-17 YoY tab ↗</a></td></tr>
+          <tr><td>2015–16</td><td>$10,400,917</td><td>$10,426,493</td><td class="neg">−$25,576</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank" style="color:var(--forest);">2016-17 YoY tab ↗</a></td></tr>
+          <tr><td>2016–17</td><td>$10,629,522</td><td>$10,629,291</td><td class="pos">+$231</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1sScaf9fVTaHbb3FJuOPgySqyrPc6GK8PaHaXAZMHvUM/edit?usp=sharing" target="_blank" style="color:var(--forest);">Previous Budgets (prior yr actual) ↗</a></td></tr>
+          <tr><td>2017–18</td><td>$10,873,807</td><td>$10,875,984</td><td class="neg">−$2,177</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1sScaf9fVTaHbb3FJuOPgySqyrPc6GK8PaHaXAZMHvUM/edit?usp=sharing" target="_blank" style="color:var(--forest);">Previous Budgets (prior yr actual) ↗</a></td></tr>
+          <tr><td>2018–19</td><td>$11,232,553</td><td>$11,230,799</td><td class="pos">+$1,754</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1sScaf9fVTaHbb3FJuOPgySqyrPc6GK8PaHaXAZMHvUM/edit?usp=sharing" target="_blank" style="color:var(--forest);">Previous Budgets (prior yr actual) ↗</a></td></tr>
+          <tr><td>2019–20</td><td>$11,535,335</td><td>$11,533,783</td><td class="pos">+$1,552</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1sScaf9fVTaHbb3FJuOPgySqyrPc6GK8PaHaXAZMHvUM/edit?usp=sharing" target="_blank" style="color:var(--forest);">Previous Budgets (prior yr actual) ↗</a></td></tr>
+          <tr><td>2020–21</td><td>$12,039,529</td><td>$12,038,644</td><td class="pos">+$885</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1tl6chkmw0540bPo9wX8OW4D50onTlz8X0hAPIzj-y38/edit?usp=sharing" target="_blank" style="color:var(--forest);">2021-22 budget (prior yr actual) ↗</a></td></tr>
+          <tr><td>2021–22</td><td>$10,778,575</td><td>$11,042,631</td><td class="neg">−$264,056</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/18WLr4xbfanuUq_um3zeQA7aycQnRoseKjRR3dUbGpsk/edit?usp=sharing" target="_blank" style="color:var(--forest);">2022-23 budget (prior yr actual) ↗</a></td></tr>
+          <tr><td>2022–23</td><td>$12,085,566</td><td>$12,021,142</td><td class="pos">+$64,424</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1-pJTry9HCjdPoyAU9dm5qAiDozEJ20fHpTYKh1xmyuo/edit?usp=sharing" target="_blank" style="color:var(--forest);">2023-24 budget (prior yr actual) ↗</a></td></tr>
+          <tr><td>2023–24</td><td>$13,033,576</td><td>$13,352,428</td><td class="neg">−$318,852</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1-pJTry9HCjdPoyAU9dm5qAiDozEJ20fHpTYKh1xmyuo/edit?usp=sharing" target="_blank" style="color:var(--forest);">2023-24 Budget ↗</a></td></tr>
+          <tr><td>2024–25</td><td>$12,014,805</td><td>$13,730,125</td><td class="neg">−$1,715,320</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing" target="_blank" style="color:var(--forest);">2026-27 YoY (prior yr actual) ↗</a></td></tr>
+          <tr><td>2025–26</td><td>$12,710,046</td><td>$14,377,923</td><td class="neg">−$1,667,877</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing" target="_blank" style="color:var(--forest);">2026-27 comparison (prior yr actual) ↗</a></td></tr>
+          <tr style="background:#fdf0ee;"><td><strong>2026–27 *</strong></td><td><strong>$13,241,383</strong> <span style="font-size:10px;color:var(--text-subtle);">proj.</span></td><td><strong>$14,542,576</strong> <span style="font-size:10px;color:var(--text-subtle);">proj.</span></td><td class="neg"><strong>−$1,301,193</strong> <span style="font-size:10px;color:var(--text-subtle);">proj.</span></td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing" target="_blank" style="color:var(--forest);">* 2026-27 Projection ↗</a></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:var(--text-subtle);margin-top:10px;padding:0 4px;">* FY 2026-27 is a projection — the fiscal year has not yet concluded. All other years show <strong>actuals</strong> drawn from the prior-year columns in BSC budget files, which reflect real Accufund accounting data.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RATES -->
+<section style="padding:24px 0;border-top:1px solid var(--border-light);" id="rates">
+  <div class="container">
+    <div class="bsc-section">
+      <p style="font-size:11px;font-weight:700;color:var(--text-subtle);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Member rates</p>
+      <h2 class="page-title">Semester rates across the years</h2>
+      <p>The BSC sets rates annually. The tables below show rates from FY 2016-17 (earliest confirmed source), FY 2023-24, and FY 2026-27 projected — revealing nearly a decade of cumulative change.</p>
+    <div class="info-box" style="margin-bottom:2rem;">
+      <span style="flex-shrink:0;font-size:14px;">ℹ️</span>
+      <div>All rates shown are per-semester totals. The "10-yr Δ" column compares FY 2016-17 to projected FY 2026-27. FY 2016-17 rates are the prior-year rates shown in the FY 2017-18 budget file.</div>
+    </div>
+    <div class="rate-grid">
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Room &amp; Board (co-op houses)</div>
+        <table class="data-table">
+          <thead><tr><th>Plan</th><th>FY 16-17</th><th>FY 23-24</th><th>FY 26-27 *</th><th>10-yr Δ</th></tr></thead>
+          <tbody>
+            <tr><td>Room &amp; Board</td><td>$3,384</td><td>$4,131</td><td>$4,986</td><td class="neg">+47.3%</td></tr>
+            <tr><td>Full Board only</td><td>$1,134</td><td>$1,387</td><td>$1,674</td><td class="neg">+47.6%</td></tr>
+            <tr><td>5-Night Board</td><td>$540</td><td>$660</td><td>$797</td><td class="neg">+47.6%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Hillegass Parker House (HiP)</p>
+        <table class="data-table">
+          <thead><tr><th>Unit type</th><th>FY 16-17</th><th>FY 23-24</th><th>FY 26-27 *</th><th>10-yr Δ</th></tr></thead>
+          <tbody>
+            <tr><td>Standard Single</td><td>$3,384</td><td>$4,131</td><td>$4,986</td><td class="neg">+47.3%</td></tr>
+            <tr><td>Deluxe Single</td><td>$4,002</td><td>$4,884</td><td>$5,895</td><td class="neg">+47.3%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Rochdale Village</div>
+        <table class="data-table">
+          <thead><tr><th>Unit type</th><th>FY 16-17</th><th>FY 23-24</th><th>FY 26-27 *</th><th>10-yr Δ</th></tr></thead>
+          <tbody>
+            <tr><td>Studio</td><td>$3,018</td><td>$3,854</td><td>$4,787</td><td class="neg">+58.6%</td></tr>
+            <tr><td>2-Bedroom</td><td>$2,628</td><td>$3,352</td><td>$4,163</td><td class="neg">+58.4%</td></tr>
+            <tr><td>3-Bedroom</td><td>$2,268</td><td>$2,895</td><td>$3,596</td><td class="neg">+58.5%</td></tr>
+            <tr><td>4-Bedroom</td><td>$2,025</td><td>$2,583</td><td>$3,208</td><td class="neg">+58.4%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+        <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Fenwick West Village</div>
+        <table class="data-table">
+          <thead><tr><th>Unit type</th><th>FY 16-17</th><th>FY 23-24</th><th>FY 26-27 *</th><th>10-yr Δ</th></tr></thead>
+          <tbody>
+            <tr><td>1-Bedroom</td><td>$3,804</td><td>$4,855</td><td>$6,030</td><td class="neg">+58.5%</td></tr>
+            <tr><td>1-Bedroom (shared)</td><td>$2,283</td><td>$2,915</td><td>$3,621</td><td class="neg">+58.6%</td></tr>
+            <tr><td>2-Bedroom</td><td>$2,922</td><td>$3,726</td><td>$4,628</td><td class="neg">+58.4%</td></tr>
+            <tr><td>3-Bedroom</td><td>$2,643</td><td>$3,375</td><td>$4,192</td><td class="neg">+58.6%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+      <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Northside Cooperative (NSC) — FY 2023-24</p>
+      <table class="data-table">
+        <thead><tr><th>Unit type</th><th>FY 23-24</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Studio</td><td>$3,874</td><td style="font-size:12px;color:var(--text-subtle);">Source: FY 2023-24 board-approved budget</td></tr>
+          <tr><td>1-Bedroom</td><td>$5,138</td><td></td></tr>
+          <tr><td>1-Bedroom (shared)</td><td>$3,089</td><td></td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:var(--text-subtle);margin-top:8px;">* FY 2026-27 rates are projected. Source: <a href="https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing" target="_blank" style="color:var(--forest);">2026-27 Rate Calculator ↗</a></p>
+    </div>
+
+    <h2 class="section-heading">Parking rates (monthly per spot)</h2>
+    <p>Parking rates are monthly charges per spot. The <strong>Convent Rate</strong> is a discounted parking rate for the BSC-leased Convent property — it is a <em>parking</em> charge, not a room or housing rate. The Convent lease expired 12/31/2026.</p>
+
+    <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;overflow-x:auto;">
+      <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Parking spot rates — monthly</p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Spot type</th><th>FY 2016-17</th><th>FY 2017-18</th><th>FY 2026-27 *</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Single / Covered</td><td>$94/mo</td><td>$95/mo</td><td>—</td><td style="font-size:12px;color:var(--text-subtle);">Not in FY 2026-27 source</td></tr>
+          <tr><td>Single / Open</td><td>$89/mo</td><td>$90/mo</td><td>—</td><td></td></tr>
+          <tr><td>Tandem / Outside</td><td>$92/mo</td><td>$93/mo</td><td>—</td><td></td></tr>
+          <tr><td>Tandem / Inside</td><td>$69/mo</td><td>$70/mo</td><td>—</td><td></td></tr>
+          <tr><td>Wolf Rate</td><td>$375/mo</td><td>$380/mo</td><td>—</td><td></td></tr>
+          <tr><td>NSC Rate</td><td>$80–$85/mo</td><td>$81–$86/mo</td><td>—</td><td></td></tr>
+          <tr><td>Wilde Rate</td><td>$80/mo</td><td>$81/mo</td><td>—</td><td></td></tr>
+          <tr style="background:#fdf8e8;"><td><strong>Convent Rate (parking)</strong></td><td>$30/mo</td><td>$30.37/mo</td><td><strong>$49.69/mo *</strong></td><td class="neg" style="font-size:12px;">+65.6% since FY 2016-17. Lease expired 12/31/2026.</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:var(--text-subtle);margin-top:8px;">
+        * FY 2026-27 projected. The Convent Rate is in the parking section of the Rate Calculator tab — it is not a housing rate.<br>
+        Sources: <a href="https://docs.google.com/spreadsheets/d/19zGbRsz1a4MdisebdASrAz1AZuhobiQuYcFEfp4HUVA/edit?usp=sharing" target="_blank" style="color:var(--forest);">FY 2017-18 Rate Summary ↗</a> · <a href="https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing" target="_blank" style="color:var(--forest);">FY 2026-27 Rate Calculator ↗</a>
+      </p>
+    </div>
+
+    <div class="info-box gold">
+      <span style="flex-shrink:0;font-size:14px;">ℹ️</span>
+      <div><strong>Note on Convent Rate:</strong> This is a monthly <em>parking</em> rate for the Convent property, not a member housing rate. The BSC leases the Convent building; that lease expired 12/31/2026. FY 2026-27 rates cover 6/1/2026–12/31/2026 only at $1.01/sqft, with an assumed renewal at $1.04/sqft thereafter.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section style="padding:24px 0;border-top:1px solid var(--border-light);" id="glossary">
+  <div class="container">
+    <div class="bsc-section">
+      <p style="font-size:11px;font-weight:700;color:var(--text-subtle);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Glossary</p>
+      <h2 class="page-title">Key terms explained</h2>
+      <p>Financial terms that appear often in BSC budget discussions, in plain English.</p>
+    <div class="gloss-grid">
+      <div class="gloss-item"><h4>Budget</h4><p>A plan for money — what we expect to earn and spend. Approved before the year starts. Actual results always differ.</p></div>
+      <div class="gloss-item"><h4>Projection / Estimate</h4><p>A forward-looking number. FY 2026-27 figures are projections. All prior years are actual board-approved budgets.</p></div>
+      <div class="gloss-item"><h4>Revenue</h4><p>Money coming in — from member room and board payments, apartment rent, and parking fees.</p></div>
+      <div class="gloss-item"><h4>Expenses</h4><p>Money going out — staff wages, food, utilities, maintenance, insurance, debt service, and more.</p></div>
+      <div class="gloss-item"><h4>Deficit / Loss</h4><p>When expenses exceed revenue. The BSC projects a −$1.30M deficit for FY 2026-27. Would be covered by reserves.</p></div>
+      <div class="gloss-item"><h4>Reserves</h4><p>Savings for emergencies or future investments. The BSC has Operating, Scholarship, Growth, and Contingency funds. No contributions this year.</p></div>
+      <div class="gloss-item"><h4>Occupancy</h4><p>The percentage of BSC beds that are filled. Higher occupancy = more revenue. The budget assumes 90% in fall.</p></div>
+      <div class="gloss-item"><h4>VPCF</h4><p>Vice President of Central Finance — the elected student officer who prepares and manages the budget. Currently Adrian Meneses (Euclid house).</p></div>
+      <div class="gloss-item"><h4>Convent Rate</h4><p>A monthly <strong>parking</strong> rate ($30/mo in FY16-17, $49.69/mo projected FY26-27) for the BSC-leased Convent property. Not a housing rate. The Convent lease expired 12/31/2026.</p></div>
+      <div class="gloss-item"><h4>Workshift</h4><p>Labor members contribute to their co-op (cooking, cleaning, maintenance) in exchange for below-market housing.</p></div>
+      <div class="gloss-item"><h4>Bad Debts</h4><p>A reserve for members who don't pay. Paying members effectively cover the cost of non-payers.</p></div>
+      <div class="gloss-item"><h4>Capital Improvement</h4><p>Major infrastructure investments — roof repairs, HVAC, structural upgrades. Large one-time costs.</p></div>
+      <div class="gloss-item"><h4>COLA</h4><p>Cost of Living Adjustment — a pay increase tied to inflation. Staff received 2% COLA this year.</p></div>
+    </div>
+    <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+      <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">VPCF notes on key FY 2026-27 decisions</div>
+      <div class="note-list">
+        <div class="note"><strong>Payroll capped at $4.15M</strong> — Per Board directive; includes 2% COLA. Down $198K from prior year.</div>
+        <div class="note"><strong>Evans Manor lease ended</strong> — The $434K annual lease income from Barrington is gone. Revenue comparisons vs. prior years are understated.</div>
+        <div class="note"><strong>Garbage costs surged 63%</strong> — The BSC was already $46K over budget on garbage in FY 2025-26. The new $353K reflects reality.</div>
+        <div class="note"><strong>Bad debts reserve doubled</strong> — $210K (up 121%) as a buffer for non-paying members. Paying members subsidize non-payers.</div>
+        <div class="note"><strong>No reserve contributions</strong> — Operating Reserve, Scholarship Fund, Growth Fund, and Contingency Fund all receive $0 this year.</div>
+        <div class="note"><strong>Convent lease &amp; laundry</strong> — The BSC leases the Convent property. The lease expired 12/31/2026; the budget uses a rate of $1.01/sqft through that date. A new $45K laundry contract is also included in this line, making laundry free to members.</div>
+        <div class="note"><strong>Financing costs declining</strong> — Down $197K from prior year. Debts are being paid down over time.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATA & SOURCES -->
+<section style="padding:24px 0;border-top:1px solid var(--border-light);" id="data">
+  <div class="container">
+    <div class="bsc-section">
+      <p style="font-size:11px;font-weight:700;color:var(--text-subtle);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;">Data &amp; Sources</p>
+      <h2 class="page-title">All data, all sources</h2>
+      <p>Every number on this site comes from a board-approved BSC budget spreadsheet. This section lists every source file, the years it covers, which tabs were used, and links directly to each one.</p>
+
+    <div class="source-grid">
+      <div class="source-card">
+        <h4>IRS Form 990 (via ProPublica)</h4>
+        <div class="sc-meta"><strong>Years covered:</strong> FY 2011-12 through FY 2023-24 (extracted data)</div>
+        <div class="sc-meta"><strong>EIN:</strong> 94-0948140 · Fiscal year ends May 31</div>
+        <div class="sc-meta"><strong>Note:</strong> 990 figures differ from operating budgets — see explanation in this tab</div>
+        <a href="https://projects.propublica.org/nonprofits/organizations/940948140" target="_blank" class="open-btn">View on ProPublica ↗</a>
+      </div>
+      <div class="source-card">
+        <h4>BSC Budget 2022-2023 (Board-Approved)</h4>
+        <div class="sc-meta"><strong>Years covered:</strong> FY 2022-23 — Actual Rev $12,085,566 / Actual Exp $12,021,142 / Actual Surplus +$64,424</div>
+        <div class="sc-meta"><strong>Tabs used:</strong> YoY Comparison (authoritative totals), Budget Summary, Rate Calculator</div>
+        <a href="https://docs.google.com/spreadsheets/d/18WLr4xbfanuUq_um3zeQA7aycQnRoseKjRR3dUbGpsk/edit?usp=sharing" target="_blank" class="open-btn">Open Spreadsheet ↗</a>
+      </div>
+      <div class="source-card">
+        <h4>Previous Budgets of the BSC</h4>
+        <div class="sc-meta"><strong>Years covered:</strong> FY 2007-08 through FY 2021-22</div>
+        <div class="sc-meta"><strong>Format:</strong> Compiled historical spreadsheet (one sheet, all years)</div>
+        <div class="sc-meta"><strong>Tabs used:</strong> Sheet1 (all revenue and expense line items)</div>
+        <a href="https://docs.google.com/spreadsheets/d/1sScaf9fVTaHbb3FJuOPgySqyrPc6GK8PaHaXAZMHvUM/edit?usp=sharing" target="_blank" class="open-btn">Open Spreadsheet ↗</a>
+      </div>
+      <div class="source-card">
+        <h4>BSC Budget 2021-2022 (Board-Approved)</h4>
+        <div class="sc-meta"><strong>Years covered:</strong> FY 2021-22 (confirms revenue = $10,778,575)</div>
+        <div class="sc-meta"><strong>Format:</strong> Full annual budget file</div>
+        <div class="sc-meta"><strong>Tabs used:</strong> Visual sheet (revenue/expense totals, YoY comparison)</div>
+        <a href="https://docs.google.com/spreadsheets/d/1tl6chkmw0540bPo9wX8OW4D50onTlz8X0hAPIzj-y38/edit?usp=sharing" target="_blank" class="open-btn">Open Spreadsheet ↗</a>
+      </div>
+      <div class="source-card">
+        <h4>BSC Budget 2016-2017 (Full)</h4>
+        <div class="sc-meta"><strong>Years covered:</strong> FY 2007-08 through 2016-17</div>
+        <div class="sc-meta"><strong>Approved:</strong> 2016</div>
+        <div class="sc-meta"><strong>Tabs used:</strong> 1 Title, 2 GAAP Budget, 4 Yearly Budget (10-yr history), 5 Budget Comparisons</div>
+        <a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank" class="open-btn">Open Spreadsheet ↗</a>
+      </div>
+      <div class="source-card">
+        <h4>BSC Budget 2017-2018 (Simplified)</h4>
+        <div class="sc-meta"><strong>Years covered:</strong> FY 2016-17 (prior year rates) and FY 2017-18</div>
+        <div class="sc-meta"><strong>Approved:</strong> 2017</div>
+        <div class="sc-meta"><strong>Tabs used:</strong> Overview (revenue/expense totals), Rate Summary (member rates), Comparative Budget</div>
+        <a href="https://docs.google.com/spreadsheets/d/19zGbRsz1a4MdisebdASrAz1AZuhobiQuYcFEfp4HUVA/edit?usp=sharing" target="_blank" class="open-btn">Open Spreadsheet ↗</a>
+      </div>
+      <div class="source-card">
+        <h4>BSC Budget 2023-2024</h4>
+        <div class="sc-meta"><strong>Years covered:</strong> FY 2018-19 through 2023-24 (YoY tab); member rates for 2023-24</div>
+        <div class="sc-meta"><strong>Approved:</strong> March 2023</div>
+        <div class="sc-meta"><strong>Tabs used:</strong> Visuals (23-24), YoY Comparison, Rate Calculator</div>
+        <a href="https://docs.google.com/spreadsheets/d/1-pJTry9HCjdPoyAU9dm5qAiDozEJ20fHpTYKh1xmyuo/edit?usp=sharing" target="_blank" class="open-btn">Open Spreadsheet ↗</a>
+      </div>
+      <div class="source-card">
+        <h4>BSC Budget 2026-2027</h4>
+        <div class="sc-meta"><strong>Years covered:</strong> FY 2023-24 through 2026-27 (projections for 2026-27)</div>
+        <div class="sc-meta"><strong>Approved:</strong> April 16, 2026</div>
+        <div class="sc-meta"><strong>Tabs used:</strong> 1 Title, 2 BSC Summary, 3 Budget Comparisons, 4 Y-O-Y, Rate Calculator</div>
+        <a href="https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing" target="_blank" class="open-btn">Open Spreadsheet ↗</a>
+      </div>
+    </div>
+
+    <div class="info-box gold" style="margin-bottom:2rem;">
+      <span style="flex-shrink:0;font-size:14px;">⚠️</span>
+      <div><strong>All 20 years now have confirmed figures.</strong> For completed years (2007-08 through 2025-26), the figures shown are <strong>actuals</strong> — pulled from the prior-year columns in each year's budget file, which draw from Accufund (the BSC's accounting system). FY 2026-27 is a projection.</div>
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;overflow-x:auto;">
+      <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">Room &amp; Board rate history (confirmed figures only)</p>
+      <table class="data-table">
+        <thead><tr><th style="text-align:left;">Fiscal Year</th><th>R&amp;B Per Semester</th><th>Year-over-Year Change</th><th>Source Tab</th></tr></thead>
+        <tbody>
+          <tr><td>2016-17</td><td>$3,384</td><td>—</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/19zGbRsz1a4MdisebdASrAz1AZuhobiQuYcFEfp4HUVA/edit?usp=sharing" target="_blank" style="color:var(--forest);">2017-18 Rate Summary (prior year column) ↗</a></td></tr>
+          <tr><td>2017-18</td><td>$3,426</td><td class="neg">+1.2%</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/19zGbRsz1a4MdisebdASrAz1AZuhobiQuYcFEfp4HUVA/edit?usp=sharing" target="_blank" style="color:var(--forest);">2017-18 Rate Summary ↗</a></td></tr>
+          <tr class="est"><td>2018–19 through 2022–23</td><td>Not confirmed</td><td>—</td><td style="font-size:11px;color:var(--text-subtle);">† Source files not provided</td></tr>
+          <tr><td>2023-24</td><td>$4,131</td><td class="neg">~+10.9% from 2017-18</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1-pJTry9HCjdPoyAU9dm5qAiDozEJ20fHpTYKh1xmyuo/edit?usp=sharing" target="_blank" style="color:var(--forest);">2023-24 Rate Calculator ↗</a></td></tr>
+          <tr><td>2025-26</td><td>$4,638</td><td class="neg">+7.5%</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing" target="_blank" style="color:var(--forest);">2026-27 Rate Calculator (prior year column) ↗</a></td></tr>
+          <tr style="background:#fdf0ee;"><td>2026-27 *</td><td>$4,986</td><td class="neg">+7.5%</td><td style="font-size:11px;"><a href="https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing" target="_blank" style="color:var(--forest);">2026-27 Rate Calculator ↗ * projected</a></td></tr>
+          <tr class="tot"><td>Total change (2016-17 → 2026-27 proj.)</td><td>$3,384 → $4,986</td><td class="neg">+47.3%</td><td style="font-size:11px;color:var(--text-subtle);">Across all confirmed source files</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="info-box" style="border-left-color:var(--forest);">
+      <span style="flex-shrink:0;font-size:14px;">✅</span>
+      <div><strong>All years now confirmed.</strong> Every year from FY 2007-08 through FY 2025-26 has a board-approved source file. FY 2026-27 is a projection. Operating budget figures reflect real cash management — what the BSC actually planned to spend and earn. IRS Form 990 figures are shown separately below.</div>
+    </div>
+
+    <h2 class="section-heading">IRS Form 990 vs. operating budget</h2>
+    <p>The BSC files a Form 990 with the IRS each year (fiscal year ending May 31). The 990 figures below come from <a href="https://projects.propublica.org/nonprofits/organizations/940948140" target="_blank">ProPublica's Nonprofit Explorer</a> and are the most authoritative public record of BSC finances. They differ significantly from operating budgets — see the explanation below.</p>
+
+    <div class="info-box gold">
+      <span style="flex-shrink:0;font-size:14px;">⚠️</span>
+      <div><strong>Why 990 and budget figures differ:</strong> The 990 (GAAP basis) includes investment income, donations, and asset sales in revenue, but capitalizes capital expenditures and principal repayments rather than expensing them. The operating budget includes capital projects and debt payments as expenses but excludes investment/donation income. Both are correct — they answer different questions. The budget reflects cash management pressure; the 990 reflects GAAP financial position.</div>
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;overflow-x:auto;">
+      <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:10px;">IRS Form 990 reported figures vs. operating budget actuals (fiscal year ending May 31)</p>
+      <table class="data-table" style="min-width:700px;">
+        <thead>
+          <tr>
+            <th>BSC Fiscal Year</th>
+            <th>990 Revenue</th>
+            <th>Budget Revenue</th>
+            <th>990 Expenses</th>
+            <th>Budget Expenses</th>
+            <th>990 Net</th>
+            <th>Budget Net</th>
+            <th>990 Filing</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>2011-12</td><td>$10,665,310</td><td style="color:var(--text-subtle);">—</td><td>$8,734,424</td><td style="color:var(--text-subtle);">—</td><td class="pos">+$1,930,886</td><td style="color:var(--text-subtle);">—</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140" target="_blank" style="color:var(--forest);">ProPublica ↗</a></td></tr>
+          <tr><td>2012-13</td><td>$10,639,186</td><td style="color:var(--text-subtle);">—</td><td>$9,106,530</td><td style="color:var(--text-subtle);">—</td><td class="pos">+$1,532,656</td><td style="color:var(--text-subtle);">—</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140" target="_blank" style="color:var(--forest);">ProPublica ↗</a></td></tr>
+          <tr><td>2013-14</td><td>$10,972,961</td><td style="color:var(--text-subtle);">—</td><td>$9,774,226</td><td style="color:var(--text-subtle);">—</td><td class="pos">+$1,198,735</td><td style="color:var(--text-subtle);">—</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140" target="_blank" style="color:var(--forest);">ProPublica ↗</a></td></tr>
+          <tr><td>2014-15</td><td>$11,217,797</td><td style="color:var(--text-subtle);">—</td><td>$9,337,350</td><td style="color:var(--text-subtle);">—</td><td class="pos">+$1,880,447</td><td style="color:var(--text-subtle);">—</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140" target="_blank" style="color:var(--forest);">ProPublica ↗</a></td></tr>
+          <tr><td>2015-16</td><td>$11,299,677</td><td>$10,400,917</td><td>$9,507,596</td><td>$10,426,493</td><td class="pos">+$1,792,081</td><td class="neg">−$25,576</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140/201741089349301219/full" target="_blank" style="color:var(--forest);">990 FY2016 ↗</a></td></tr>
+          <tr><td>2016-17</td><td>$11,224,433</td><td>$10,629,522</td><td>$9,919,923</td><td>$10,629,291</td><td class="pos">+$1,304,510</td><td class="pos">+$231</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140/201831039349300538/full" target="_blank" style="color:var(--forest);">990 FY2017 ↗</a></td></tr>
+          <tr><td>2017-18</td><td>$12,338,480</td><td>$10,873,807</td><td>$9,768,908</td><td>$10,875,984</td><td class="pos">+$2,569,572</td><td class="neg">−$2,177</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140/201912199349300521/full" target="_blank" style="color:var(--forest);">990 FY2018 ↗</a></td></tr>
+          <tr><td>2018-19</td><td>$12,576,923</td><td>$11,232,553</td><td>$10,502,661</td><td>$11,230,799</td><td class="pos">+$2,074,262</td><td class="pos">+$1,754</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140/202031979349307738/full" target="_blank" style="color:var(--forest);">990 FY2019 ↗</a></td></tr>
+          <tr><td>2019-20</td><td>$12,313,327</td><td>$11,535,335</td><td>$10,349,121</td><td>$11,533,783</td><td class="pos">+$1,964,206</td><td class="pos">+$1,552</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140/202131059349302223/full" target="_blank" style="color:var(--forest);">990 FY2020 ↗</a></td></tr>
+          <tr><td>2020-21</td><td>$10,593,922</td><td>$12,039,529</td><td>$10,637,994</td><td>$12,038,644</td><td class="neg">−$44,072</td><td class="pos">+$885</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140/202211089349301571/full" target="_blank" style="color:var(--forest);">990 FY2021 ↗</a></td></tr>
+          <tr><td>2021-22</td><td>$11,741,752</td><td>$10,778,575</td><td>$8,153,076</td><td>$11,042,631</td><td class="pos">+$3,588,676</td><td class="neg">−$264,056</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140/202421069349301577/full" target="_blank" style="color:var(--forest);">990 FY2022 ↗</a></td></tr>
+          <tr><td>2022-23</td><td>$10,499,027</td><td>$12,085,566</td><td>$9,163,955</td><td>$12,021,142</td><td class="pos">+$1,335,072</td><td class="pos">+$64,424</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140/202431069349301583/full" target="_blank" style="color:var(--forest);">990 FY2023 ↗</a></td></tr>
+          <tr><td>2023-24</td><td>$14,398,186</td><td>$13,033,576</td><td>$11,149,394</td><td>$13,352,428</td><td class="pos">+$3,248,792</td><td class="neg">−$318,852</td><td style="font-size:11px;"><a href="https://projects.propublica.org/nonprofits/organizations/940948140/202511059349302526/full" target="_blank" style="color:var(--forest);">990 FY2024 ↗</a></td></tr>
+          <tr style="background:#fdf8e8;"><td>2024-25</td><td style="color:var(--text-subtle);font-style:italic;">Not yet filed</td><td>$12,014,805</td><td style="color:var(--text-subtle);font-style:italic;">Not yet filed</td><td>$13,730,125</td><td style="color:var(--text-subtle);">—</td><td class="neg">−$1,715,320</td><td style="font-size:11px;color:var(--text-subtle);">Expected ~late 2025</td></tr>
+          <tr style="background:#fdf8e8;"><td>2025-26</td><td style="color:var(--text-subtle);font-style:italic;">Not yet filed</td><td>$12,710,046</td><td style="color:var(--text-subtle);font-style:italic;">Not yet filed</td><td>$14,377,923</td><td style="color:var(--text-subtle);">—</td><td class="neg">−$1,667,877</td><td style="font-size:11px;color:var(--text-subtle);">Expected ~late 2026</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:var(--text-subtle);margin-top:10px;">990 data from <a href="https://projects.propublica.org/nonprofits/organizations/940948140" target="_blank" style="color:var(--forest);">ProPublica Nonprofit Explorer ↗</a> · EIN: 94-0948140 · BSC fiscal year ends May 31.</p>
+    </div>
+
+    <div style="background:var(--white);border:1px solid var(--border);padding:14px;margin-bottom:14px;">
+      <p style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-subtle);border-bottom:1px solid var(--border-light);padding-bottom:6px;margin-bottom:12px;">Why 990 and operating budget figures differ</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:13px;line-height:1.7;">
+        <div>
+          <p style="font-weight:700;color:var(--forest);margin-bottom:4px;">990 Revenue is HIGHER because it includes:</p>
+          <ul style="padding-left:1.2rem;color:var(--text-muted);">
+            <li>Investment income on BSC reserves ($200K–$600K/yr)</li>
+            <li>Contributions and donations from alumni</li>
+            <li>Proceeds from asset sales</li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-weight:700;color:var(--forest);margin-bottom:4px;">990 Expenses are LOWER because it excludes:</p>
+          <ul style="padding-left:1.2rem;color:var(--text-muted);">
+            <li>Capital improvements (capitalized as assets under GAAP)</li>
+            <li>Debt principal repayments (balance sheet item)</li>
+            <li>These together total $2M+ per year in the operating budget</li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:12px;color:var(--text-subtle);margin-top:12px;padding-top:10px;border-top:1px solid var(--border-light);">The 990 showing a surplus does not mean the BSC has cash to spare. The operating budget deficit reflects real financial pressure on day-to-day operations. The Board uses operating budget figures to set rates and manage spending — not the 990.</p>
+    </div>
+
+  </div>
+</section>
+
+  </div>
+</div>
+<!-- FOOTER -->
+<footer>
+  <strong>Berkeley Student Cooperative</strong><br>
+  Budget Guide for Board Directors · FY 2007-08 through FY 2026-27<br>
+  VPCF FY 2026-27: Adrian Meneses (Euclid) · <a href="https://www.bsc.coop">bsc.coop</a><br>
+  📊 Sources:
+  <a href="https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing" target="_blank">FY 2016-17 ↗</a> ·
+  <a href="https://docs.google.com/spreadsheets/d/19zGbRsz1a4MdisebdASrAz1AZuhobiQuYcFEfp4HUVA/edit?usp=sharing" target="_blank">FY 2017-18 ↗</a> ·
+  <a href="https://docs.google.com/spreadsheets/d/1-pJTry9HCjdPoyAU9dm5qAiDozEJ20fHpTYKh1xmyuo/edit?usp=sharing" target="_blank">FY 2023-24 ↗</a> ·
+  <a href="https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing" target="_blank">FY 2026-27 ↗</a><br><br>
+  <span style="font-size:11px;">Actuals shown for FY 2007-08 through 2025-26 (prior-year columns from BSC budget files = Accufund data). FY 2026-27 is a projection. Built for board director reference.</span>
+</footer>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  document.getElementById('progress-bar').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
+}, { passive: true });
+
+// Nav active
+const secs = document.querySelectorAll('section[id],header[id]');
+const navAs = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let cur = '';
+  secs.forEach(s => { if (window.scrollY >= s.offsetTop - 70) cur = s.id; });
+  navAs.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
+}, { passive: true });
+
+// Tab switcher
+function switchTab(group, id, btn) {
+  document.querySelectorAll('[id^="' + group + '-tab-"]').forEach(p => p.classList.remove('on'));
+  document.getElementById(group + '-tab-' + id).classList.add('on');
+  btn.closest('.tab-bar').querySelectorAll('.tb').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+}
+
+// Expense search
+function filterExp() {
+  const q = document.getElementById('exp-search').value.toLowerCase();
+  const rows = document.querySelectorAll('#exp-tbody tr:not(.tot)');
+  let shown = 0;
+  rows.forEach(r => {
+    const vis = !q || ((r.dataset.search || '') + ' ' + r.textContent.toLowerCase()).includes(q);
+    r.style.display = vis ? '' : 'none';
+    if (vis) shown++;
+  });
+  document.getElementById('no-results').style.display = shown === 0 ? 'block' : 'none';
+  document.querySelector('#exp-tbody .tot').style.display = q ? 'none' : '';
+}
+
+// Bar builder
+function makeBars(id, data, max) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = data.map(d => {
+    const pct = Math.min(100, Math.round(Math.abs(d.val) / max * 100));
+    const s = Math.abs(d.val) >= 1e6 ? '$' + (Math.abs(d.val)/1e6).toFixed(2)+'M' : '$' + Math.round(Math.abs(d.val)/1000)+'K';
+    return `<div class="br"><div class="l" title="${d.l}">${d.l}</div><div class="t"><div class="f" style="width:0%;background:${d.c};" data-pct="${pct}"></div></div><div class="a">${s}</div></div>`;
+  }).join('');
+  setTimeout(() => el.querySelectorAll('.f').forEach(b => b.style.width = b.dataset.pct + '%'), 80);
+}
+
+makeBars('top-bars', [
+  {l:'Staff Payroll', val:4150000, c:'#2d4a1e'},
+  {l:'Capital Improvement', val:1281000, c:'#b8860b'},
+  {l:'Financing', val:1187701, c:'#7a7060'},
+  {l:'Food', val:1180008, c:'#4e7a33'},
+  {l:'Insurance', val:904474, c:'#8b6040'},
+  {l:'Water', val:675568, c:'#3a7a6a'},
+  {l:'Workshift Pool', val:657453, c:'#5a4a8a'},
+], 4300000);
+
+makeBars('riser-bars', [
+  {l:'Bad Debts +121%', val:115000, c:'#8b2615'},
+  {l:'Garbage +63%', val:136243, c:'#c4422e'},
+  {l:'Cap. Improvement +14%', val:161194, c:'#2d4a1e'},
+  {l:'Gas & Elec +22%', val:113313, c:'#7a5c2e'},
+  {l:'Legal Fees +37%', val:67036, c:'#8b2615'},
+  {l:'Consulting +39%', val:56000, c:'#7a7060'},
+  {l:'Auditing +39%', val:42000, c:'#5a4a8a'},
+], 200000);
+
+makeBars('faller-bars', [
+  {l:'Staff Payroll −4.5%', val:197769, c:'#2d4a1e'},
+  {l:'Financing −14.2%', val:196836, c:'#3d6128'},
+  {l:'IT Maint −31%', val:78912, c:'#4e7a33'},
+  {l:'Workshift Pool −10%', val:73102, c:'#4e7a33'},
+  {l:'Reg Maint Cent −8%', val:66859, c:'#4e7a33'},
+  {l:'Supplies −18%', val:46561, c:'#4e7a33'},
+  {l:'Staff Dev −42%', val:17792, c:'#4e7a33'},
+], 210000);
+
+// Charts
+document.addEventListener('DOMContentLoaded', () => {
+  const font = { family: "'Source Sans 3', sans-serif", size: 12 };
+  const parchment = '#e8dcc8';
+  const forest = '#2d4a1e';
+  const forestMid = '#4e7a33';
+  const red = '#8b2615';
+  const gold = '#b8860b';
+
+  // Revenue donut
+  new Chart(document.getElementById('revPie'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Room','Rent','Board','Misc','Parking'],
+      datasets: [{
+        data: [5909318,3578057,2629786,878000,246221],
+        backgroundColor: [forest,'#4e7a33',gold,'#8b6040','#aaa'],
+        borderColor: '#fffdf8', borderWidth: 3, hoverOffset: 6
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false, cutout: '62%',
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ' ' + ctx.label + ': $' + (ctx.raw/1e6).toFixed(2)+'M' }}
+      }
+    }
+  });
+
+  // Revenue grouped bar
+  new Chart(document.getElementById('revBar'), {
+    type: 'bar',
+    data: {
+      labels: ['Room','Rent','Board','Miscellaneous','Parking'],
+      datasets: [
+        { label:'FY 2025-26 budget', data:[5541768,3428434,2337195,751700,216545], backgroundColor:'#c8c0a0' },
+        { label:'FY 2026-27 projected', data:[5909318,3578057,2629786,878000,246221], backgroundColor:forest }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ' ' + ctx.dataset.label + ': $' + (ctx.raw/1e6).toFixed(2)+'M' }}
+      },
+      scales: {
+        y: { ticks: { callback: v => '$' + (v/1e6).toFixed(1)+'M', font }, grid: { color:'rgba(92,61,30,0.08)' } },
+        x: { ticks: { font }, grid: { display: false } }
+      }
+    }
+  });
+
+  // 20-year trend
+  const allLabels = ['07-08','08-09','09-10','10-11','11-12','12-13','13-14','14-15','15-16','16-17','17-18','18-19','19-20','20-21','21-22','22-23','23-24','24-25','25-26','26-27*'];
+  const allRev = [8668450,8289623,9176630,9591304,9793719,10023602,10334439,10206060,10400917,10629522,10873807,11232553,11535335,12039529,10778575,12085566,13033576,12014805,12710046,13241383];
+  const allExp = [8450993,8288973,9142080,9557447,9744880,9942710,10338746,10201648,10426493,10629291,10875984,11230799,11533783,12038644,11042631,12021142,13352428,13730125,14377923,14542576];
+
+  // Actual (confirmed) vs estimated vs projected point styling
+  const revColors = allLabels.map((l,i) => i === 19 ? '#e89090' : forest);
+  const expColors = allLabels.map((l,i) => i === 19 ? '#e89090' : red);
+
+  new Chart(document.getElementById('trendChart'), {
+    type: 'line',
+    data: {
+      labels: allLabels,
+      datasets: [
+        {
+          label: 'Revenue',
+          data: allRev,
+          borderColor: forest, backgroundColor: 'rgba(45,74,30,0.07)',
+          fill: true, tension: 0.3, borderWidth: 2,
+          pointRadius: 4, pointBackgroundColor: revColors, pointBorderWidth: 0
+        },
+        {
+          label: 'Expenses',
+          data: allExp,
+          borderColor: red, backgroundColor: 'transparent',
+          borderDash: [5,4], tension: 0.3, borderWidth: 2,
+          pointRadius: 4, pointBackgroundColor: expColors, pointBorderWidth: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ' ' + ctx.dataset.label + ': $' + (ctx.raw/1e6).toFixed(2)+'M',
+            afterLabel: (ctx) => {
+              const i = ctx.dataIndex;
+              if (i >= 11 && i <= 15) return '  † estimated';
+              if (i === 19) return '  * projected';
+              return '';
+            }
+          }
+        }
+      },
+      scales: {
+        y: { min: 7500000, ticks: { callback: v => '$'+(v/1e6).toFixed(1)+'M', font }, grid: { color:'rgba(92,61,30,0.08)' } },
+        x: { ticks: { font: {...font, size: 10}, maxRotation: 45 }, grid: { display: false } }
+      }
+    }
+  });
+});
+</script>
+
+<!-- ── CHATBOT ── -->
+<style>
+  #chat-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 1000;
+    width: 56px; height: 56px; border-radius: 50%;
+    background: var(--forest); border: 3px solid var(--red);
+    color: #fff; font-size: 22px; cursor: pointer;
+    box-shadow: 0 4px 20px rgba(42,31,14,0.35);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  #chat-btn:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(42,31,14,0.45); }
+  #chat-panel {
+    position: fixed; bottom: 92px; right: 24px; z-index: 999;
+    width: 380px; max-width: calc(100vw - 48px);
+    background: var(--parchment); border: 2px solid var(--border-dark);
+    border-radius: 8px; box-shadow: 0 8px 40px rgba(42,31,14,0.25);
+    display: none; flex-direction: column; overflow: hidden;
+    font-family: 'Source Sans 3', sans-serif;
+  }
+  #chat-panel.open { display: flex; }
+  .chat-header {
+    background: var(--forest); color: #fff;
+    padding: 12px 16px; display: flex; align-items: center;
+    justify-content: space-between; border-bottom: 2px solid var(--red);
+  }
+  .chat-header-left { display: flex; align-items: center; gap: 10px; }
+  .chat-header-icon {
+    width: 30px; height: 30px; border-radius: 50%;
+    background: var(--parchment); display: flex; align-items: center;
+    justify-content: center; font-size: 13px; color: var(--forest); font-weight: 700;
+  }
+  .chat-header h3 { font-size: 14px; font-weight: 600; margin: 0; }
+  .chat-header p { font-size: 11px; color: rgba(255,255,255,0.55); margin: 0; }
+  .chat-close { background: none; border: none; color: rgba(255,255,255,0.7); font-size: 18px; cursor: pointer; padding: 2px 6px; border-radius: 4px; }
+  .chat-close:hover { color: #fff; background: rgba(255,255,255,0.1); }
+  .chat-messages {
+    flex: 1; overflow-y: auto; padding: 14px;
+    display: flex; flex-direction: column; gap: 10px;
+    min-height: 260px; max-height: 360px;
+    background: var(--parchment);
+  }
+  .chat-msg {
+    max-width: 88%; padding: 8px 12px; border-radius: 6px;
+    font-size: 13px; line-height: 1.6;
+  }
+  .chat-msg.bot {
+    background: var(--white); border: 1px solid var(--border-dark);
+    color: var(--text); align-self: flex-start; border-radius: 2px 8px 8px 8px;
+  }
+  .chat-msg.bot a { color: var(--forest); text-decoration: underline; font-size: 11px; }
+  .chat-msg.bot a:hover { color: var(--red); }
+  .chat-msg.user {
+    background: var(--forest); color: #fff;
+    align-self: flex-end; border-radius: 8px 2px 8px 8px;
+  }
+  .chat-msg.bot.loading { color: var(--text-subtle); font-style: italic; }
+  .chat-chips {
+    padding: 8px 12px 4px; display: flex; flex-wrap: wrap; gap: 6px;
+  }
+  .chat-chip {
+    font-size: 11px; font-weight: 600; color: var(--forest);
+    border: 1px solid var(--border-dark); background: var(--white);
+    padding: 4px 10px; border-radius: 12px; cursor: pointer;
+    transition: all 0.15s;
+  }
+  .chat-chip:hover { background: var(--forest); color: #fff; border-color: var(--forest); }
+  .chat-input-row {
+    display: flex; gap: 8px; padding: 10px 12px;
+    border-top: 1px solid var(--border-dark); background: var(--white);
+  }
+  #chat-input {
+    flex: 1; padding: 7px 10px; font-size: 13px;
+    font-family: 'Source Sans 3', sans-serif;
+    border: 1px solid var(--border-dark); border-radius: 4px;
+    background: var(--parchment); color: var(--text); outline: none;
+  }
+  #chat-input:focus { border-color: var(--forest); box-shadow: 0 0 0 2px rgba(45,74,30,0.12); }
+  #chat-send {
+    background: var(--forest); color: #fff; border: none;
+    padding: 7px 14px; border-radius: 4px; font-size: 13px;
+    font-weight: 600; cursor: pointer; font-family: 'Source Sans 3', sans-serif;
+    transition: background 0.15s;
+  }
+  #chat-send:hover { background: var(--red); }
+  #chat-send:disabled { background: var(--text-subtle); cursor: not-allowed; }
+</style>
+
+<button id="chat-btn" onclick="toggleChat()" title="Ask about the BSC budget" aria-label="Open budget assistant">💬</button>
+
+<div id="chat-panel" role="dialog" aria-label="BSC Budget Assistant">
+  <div class="chat-header">
+    <div class="chat-header-left">
+      <div class="chat-header-icon">B</span>
+      <div>
+        <h3 class="subsection-heading" style="margin-top:8px;">BSC Budget Assistant</h3>
+        <p>Ask anything about the budget</p>
+      </div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">✕</button>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="chat-msg bot" id="chat-welcome">Hi! I'm a budget assistant for the Berkeley Student Cooperative. To get started, enter your Anthropic API key below — it stays in your browser and is never stored.</div>
+    <div id="api-key-setup" style="padding:10px 14px;background:var(--parchment-mid);border-bottom:1px solid var(--border);">
+      <label style="font-size:11px;font-weight:600;color:var(--text-subtle);text-transform:uppercase;letter-spacing:0.07em;display:block;margin-bottom:5px;">Anthropic API Key</label>
+      <div style="display:flex;gap:6px;">
+        <input id="api-key-input" type="password" placeholder="sk-ant-..." style="flex:1;padding:6px 8px;font-size:12px;font-family:monospace;border:1px solid var(--border-dark);border-radius:3px;background:var(--white);color:var(--text);outline:none;"/>
+        <button onclick="saveApiKey()" style="background:var(--forest);color:#fff;border:none;padding:6px 12px;border-radius:3px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Source Sans 3',sans-serif;">Save</button>
+      </div>
+      <p style="font-size:10px;color:var(--text-subtle);margin-top:4px;">Get a key at <a href="https://console.anthropic.com" target="_blank" style="color:var(--forest);">console.anthropic.com</a>. Key stays in this browser tab only — works on GitHub Pages.</p>
+    </div>
+  </div>
+  <div class="chat-chips" id="chat-chips">
+    <button class="chat-chip" onclick="askChip(this)">What's the projected deficit?</button>
+    <button class="chat-chip" onclick="askChip(this)">Why is garbage up 63%?</button>
+    <button class="chat-chip" onclick="askChip(this)">How have rates changed over 10 years?</button>
+    <button class="chat-chip" onclick="askChip(this)">What is a workshift?</button>
+  </div>
+  <div style="padding:4px 12px;font-size:10px;color:var(--text-subtle);background:var(--parchment-mid);border-top:1px solid var(--border);text-align:center;">
+    Powered by Claude · <span id="chat-status">ready</span>
+  </div>
+  <div class="chat-input-row">
+    <input id="chat-input" type="text" placeholder="Enter API key above first…" onkeydown="if(event.key==='Enter')sendChat()" aria-label="Chat input" disabled/>
+    <button id="chat-send" onclick="sendChat()" disabled>Send</button>
+  </div>
+</div>
+
+<script>
+const SYSTEM_PROMPT = `You are a knowledgeable budget assistant for the Berkeley Student Cooperative (BSC), a student-run nonprofit housing cooperative at UC Berkeley founded in 1933. You help board directors and others understand BSC finances.
+
+KEY FACTS — use these to answer questions:
+
+WHAT IS THE BSC:
+- Student-run nonprofit cooperative providing affordable housing and meals to UC Berkeley students since 1933
+- Largest student housing cooperative in the United States
+- Members govern directly, contribute labor (workshifts: cooking, cleaning, maintenance) for below-market rates
+- Financially self-sustaining — no university subsidy
+- Operates co-op houses, Rochdale Village apartments, Hillegass Parker House (HiP), Fenwick West Village, NSC (Northside Cooperative), and parking facilities
+
+FY 2026-27 BUDGET (PROJECTIONS ONLY — FISCAL YEAR NOT YET CONCLUDED):
+- Projected Revenue: $13,241,383
+- Projected Expenses: $14,542,576
+- Projected Deficit: -$1,301,193
+- Rate increase: 7.5% on Room, Board & Rent; 10% on Parking
+- Board-approved April 16, 2026
+- VPCF: Adrian Meneses (Euclid house)
+- Projected occupancy: Summer 43%, Fall 90%, Spring 84.75%
+
+REVENUE BREAKDOWN (FY 2026-27 projected):
+- Room: $5,909,318 (+6.6% vs prior year budget)
+- Rent (apartments): $3,578,057 (+4.4%)
+- Board (meal plans): $2,629,786 (+12.5%)
+- Miscellaneous: $878,000 (+16.8%)
+- Parking: $246,221 (+13.7%)
+
+KEY EXPENSE CHANGES (FY 2026-27 projected vs FY 2025-26 budget):
+- Staff Payroll: $4,150,000 (DOWN $198K — Board-capped, includes 2% COLA)
+- Capital Improvement: $1,281,000 (UP $161K — Hillegass Parker House (HiP) & Rochdale roof projects)
+- Financing: $1,187,701 (DOWN $197K — debts being paid down)
+- Food: $1,180,008 (UP $18K)
+- Insurance: $904,474 (flat)
+- Water: $675,568 (UP 4%)
+- Garbage: $352,825 (UP 63% — already over-budget in FY 2025-26)
+- Gas & Electricity: $636,035 (UP 22%)
+- Legal Fees: $250,000 (UP 37% — evictions, delinquent bills)
+- Bad Debts: $210,000 (UP 121% — liquidity buffer for non-payers)
+- Auditing Fees: $150,000 (UP 39% — 5 audits required)
+- No contributions to reserves, scholarship, growth, or contingency funds
+- Convent lease: BSC leases the Convent property; lease expired 12/31/2026, rate $1.01/sqft used 6/1/2026–12/31/2026
+- Convent Rate: this is a PARKING rate ($30/mo in FY2016-17, $30.37 in FY2017-18, $49.69 projected FY2026-27) — NOT a housing rate
+- HiP = Hillegass Parker House (a BSC co-op house, abbreviated HiP)
+
+IMPORTANT NOTES:
+- Evans Manor/Barrington lease ended — losing $434K in annual lease income vs prior years
+- Payroll capped at $4.15M by Board directive
+- New laundry contract ($45K) included in rent expense — laundry now free to members
+- No reserve contributions this year
+
+HISTORICAL BUDGET DATA (board-approved actual budgets):
+- 2007-08: Rev $8.67M, Exp $8.45M, Surplus +$217K
+- 2008-09: Rev $8.29M, Exp $8.29M, Surplus +$1K
+- 2009-10: Rev $9.18M, Exp $9.14M, Surplus +$35K
+- 2010-11: Rev $9.59M, Exp $9.56M, Surplus +$34K
+- 2011-12: Rev $9.79M, Exp $9.74M, Surplus +$49K
+- 2012-13: Rev $10.02M, Exp $9.94M, Surplus +$81K
+- 2013-14: Rev $10.33M, Exp $10.34M, Deficit -$4K (first deficit)
+- 2014-15: Rev $10.21M, Exp $10.20M, Surplus +$4K
+- 2015-16: Rev $10.40M, Exp $10.43M, Deficit -$26K
+- 2016-17: Rev $10.63M, Exp $10.63M, Surplus +$231 (essentially breakeven)
+- 2017-18: Rev $10.87M, Exp $10.88M, Deficit -$2,177 (essentially breakeven)
+- 2018-19: Rev $11.23M, Exp $11.23M, Surplus +$1,754 (essentially breakeven)
+- 2019-20: Rev $11.54M, Exp $11.53M, Surplus +$1,551 (essentially breakeven)
+- 2020-21: Rev $12.04M, Exp $12.04M, Surplus +$885 (essentially breakeven)
+- 2021-22: Rev $10.78M, Exp $11.04M, Deficit -$264,056 ACTUAL (from 2022-23 budget prior-year column)
+- 2022-23: Rev $12,085,566, Exp $12,021,142, Surplus +$64,424 ACTUAL (from 2023-24 budget prior-year column)
+- 2023-24: Rev $13.03M, Exp $13.35M, Deficit -$319K
+- 2024-25: Rev $12.01M, Exp $13.73M, Deficit -$1.72M
+- 2025-26: Rev $12.71M, Exp $14.38M, Deficit -$1.67M
+- 2026-27: PROJECTED Rev $13.24M, Exp $14.54M, Deficit -$1.30M
+
+MEMBER RATES (per semester):
+- FY 2016-17: Room & Board $3,384 | Rochdale Studio $3,018 | Fenwick 1BR $3,804
+- FY 2023-24: Room & Board $4,131 | Rochdale Studio $3,854 | Fenwick 1BR $4,855
+- FY 2026-27 (projected): Room & Board $4,986 | Rochdale Studio $4,787 | Fenwick 1BR $6,030
+- 10-year change on Room & Board: +47.3% | Rochdale Studio: +58.6%
+
+DATA SOURCES:
+- FY 2016-17: https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing
+- FY 2017-18: https://docs.google.com/spreadsheets/d/19zGbRsz1a4MdisebdASrAz1AZuhobiQuYcFEfp4HUVA/edit?usp=sharing
+- FY 2023-24: https://docs.google.com/spreadsheets/d/1-pJTry9HCjdPoyAU9dm5qAiDozEJ20fHpTYKh1xmyuo/edit?usp=sharing
+- FY 2026-27: https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing
+
+IRS FORM 990 DATA (from ProPublica — most authoritative public financial record):
+- 990 fiscal year ends May 31 (so "FY ending May 2023" = BSC FY 2022-23)
+- 990 figures differ from operating budgets because:
+  * 990 revenue includes investment income, donations, asset sales (often $500K-$1M+ extra)
+  * 990 expenses EXCLUDE capital improvements and debt principal (often $2M+ less)
+  * Result: 990 almost always shows a surplus even when operating budget shows deficit
+- Key 990 figures:
+  * FY 2023-24: Rev $14,398,186 / Exp $11,149,394 / Net +$3,248,792
+  * FY 2022-23: Rev $10,499,027 / Exp $9,163,955 / Net +$1,335,072
+  * FY 2021-22: Rev $11,741,752 / Exp $8,153,076 / Net +$3,588,676
+  * FY 2020-21: Rev $10,593,922 / Exp $10,637,994 / Net -$44,072
+  * FY 2019-20: Rev $12,313,327 / Exp $10,349,121 / Net +$1,964,206
+  * FY 2018-19: Rev $12,576,923 / Exp $10,502,661 / Net +$2,074,262
+- ProPublica link: https://projects.propublica.org/nonprofits/organizations/940948140
+- Total Assets FY 2023-24: $55,614,109 / Total Liabilities: $14,072,899 / Net Assets: $41,541,210
+
+IRS FORM 990 DATA (from ProPublica — authoritative public financial record, EIN 94-0948140):
+- 990 fiscal year ends May 31 (FY ending May 2024 = BSC FY 2023-24)
+- 990 revenue HIGHER than budget: includes investment income, donations, asset sales
+- 990 expenses LOWER than budget: capital improvements and debt principal excluded (capitalized under GAAP)
+- Result: 990 almost always shows surplus even when operating budget shows deficit
+- Key 990 figures:
+  FY 2023-24: Rev $14,398,186 / Exp $11,149,394 / Net +$3,248,792 / Total Assets $55,614,109
+  FY 2022-23: Rev $10,499,027 / Exp $9,163,955 / Net +$1,335,072
+  FY 2021-22: Rev $11,741,752 / Exp $8,153,076 / Net +$3,588,676
+  FY 2020-21: Rev $10,593,922 / Exp $10,637,994 / Net -$44,072
+  FY 2019-20: Rev $12,313,327 / Exp $10,349,121 / Net +$1,964,206
+  FY 2018-19: Rev $12,576,923 / Exp $10,502,661 / Net +$2,074,262
+  FY 2017-18: Rev $12,338,480 / Exp $9,768,908 / Net +$2,569,572
+  FY 2016-17: Rev $11,224,433 / Exp $9,919,923 / Net +$1,304,510
+- ProPublica: https://projects.propublica.org/nonprofits/organizations/940948140
+
+TONE AND CITATION RULES:
+- Be helpful, clear, and concise.
+- Always distinguish projections (FY 2026-27) from confirmed budget figures (all prior years).
+- ALWAYS cite your source at the end of every response using this format:
+  📄 Source: [file name, tab name] — [link]
+  Examples:
+  📄 Source: FY 2026-27 Budget, "3 Budget Comparisons" tab — https://docs.google.com/spreadsheets/d/1KHdk9LmYbuY8l99QypnVlpihYLBoAJqe3197_NSJglc/edit?usp=sharing
+  📄 Source: FY 2023-24 Budget, "YoY Comparison" tab — https://docs.google.com/spreadsheets/d/1-pJTry9HCjdPoyAU9dm5qAiDozEJ20fHpTYKh1xmyuo/edit?usp=sharing
+  📄 Source: FY 2016-17 Budget (Full), "4 Yearly Budget" tab — https://docs.google.com/spreadsheets/d/0B2iwolUvCXbKd3lLTFI2ak9JTmNGTFljZ1JFRm1RUnppaG1F/edit?usp=sharing
+  📄 Source: FY 2017-18 Budget (Simplified), "Overview" tab — https://docs.google.com/spreadsheets/d/19zGbRsz1a4MdisebdASrAz1AZuhobiQuYcFEfp4HUVA/edit?usp=sharing
+- If your answer draws from multiple sources, cite all of them, one per line.
+- All years 2007-08 through 2025-26 are now actuals. Only 2026-27 is a projection.
+- Keep answers focused. Simple factual questions: under 100 words + citation. Detailed breakdowns: as long as needed + citations.`;
+
+let chatHistory = [];
+let apiKey = "";
+let chatOpen = false;
+
+function saveApiKey() {
+  const k = document.getElementById('api-key-input').value.trim();
+  if (!k || !k.startsWith('sk-ant-')) {
+    alert('Please enter a valid Anthropic API key starting with sk-ant-');
+    return;
+  }
+  apiKey = k;
+  document.getElementById('api-key-setup').style.display = 'none';
+  document.getElementById('chat-welcome').textContent = "Ready! Ask me anything about BSC finances — I will always cite the source spreadsheet for every answer.";
+  document.getElementById('chat-input').disabled = false;
+  document.getElementById('chat-send').disabled = false;
+  document.getElementById('chat-status').textContent = 'ready';
+}
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById('chat-panel').classList.toggle('open', chatOpen);
+  if (chatOpen) document.getElementById('chat-input').focus();
+}
+
+function askChip(btn) {
+  document.getElementById('chat-input').value = btn.textContent;
+  document.getElementById('chat-chips').style.display = 'none';
+  sendChat();
+}
+
+async function sendChat() {
+  const input = document.getElementById('chat-input');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  input.value = '';
+  document.getElementById('chat-send').disabled = true;
+  const statusEl = document.getElementById('chat-status');
+  if (statusEl) statusEl.textContent = 'thinking...';
+  addMessage(msg, 'user');
+
+  const loadingEl = addMessage('Thinking…', 'bot loading');
+  chatHistory.push({ role: 'user', content: msg });
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 1000,
+        system: SYSTEM_PROMPT,
+        messages: chatHistory
+      })
+    });
+    const data = await res.json();
+    const reply = (data.content && data.content[0] && data.content[0].text) ? data.content[0].text : "Sorry, I could not get a response. Please try again.";
+    loadingEl.textContent = reply;
+    loadingEl.classList.remove('loading');
+    chatHistory.push({ role: 'assistant', content: reply });
+  } catch(e) {
+    loadingEl.textContent = "Connection error. Please try again.";
+    loadingEl.classList.remove('loading');
+  }
+  document.getElementById('chat-send').disabled = false;
+  if (statusEl) statusEl.textContent = 'ready';
+  input.focus();
+}
+
+function addMessage(text, cls) {
+  const el = document.createElement('div');
+  el.className = 'chat-msg ' + cls;
+  // Render plain text but convert URLs to links and preserve line breaks
+  if (cls.includes('loading')) {
+    el.textContent = text;
+  } else {
+    const urlRegex = /(https?:\/\/[^\s)]+)/g;
+    const parts = text.split(urlRegex);
+    parts.forEach(part => {
+      if (urlRegex.test(part)) {
+        const a = document.createElement('a');
+        a.href = part;
+        a.textContent = part.length > 60 ? part.slice(0, 57) + '...' : part;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.style.cssText = 'color:inherit;opacity:0.85;word-break:break-all;';
+        el.appendChild(a);
+        urlRegex.lastIndex = 0;
+      } else {
+        part.split('\n').forEach((line, i, arr) => {
+          if (i > 0) el.appendChild(document.createElement('br'));
+          if (line) el.appendChild(document.createTextNode(line));
+        });
+      }
+    });
+  }
+  const msgs = document.getElementById('chat-messages');
+  msgs.appendChild(el);
+  msgs.scrollTop = msgs.scrollHeight;
+  return el;
+}
+</script>
+
+</body>
+</html>
